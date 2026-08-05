@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>西安行程 · 历史版本</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { display: grid; grid-template-rows: auto 1fr; background: #f7f8fa; color: #202124; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .toolbar { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 10px max(16px, calc((100vw - 1100px) / 2)); border-bottom: 1px solid #dfe3e8; background: #fff; }
+    .toolbar strong { margin-right: auto; font-size: 15px; }
+    .toolbar label { color: #667085; font-size: 13px; }
+    .toolbar select { height: 38px; min-width: 190px; padding: 0 32px 0 12px; border: 1px solid #cfd5dc; border-radius: 6px; background: #fff; color: #202124; font: inherit; }
+    .toolbar select:focus-visible { outline: 2px solid #1f6feb; outline-offset: 2px; }
+    iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+    .status { display: grid; place-items: center; padding: 32px; color: #667085; }
+    @media (max-width: 600px) {
+      .toolbar { min-height: 54px; padding: 8px 12px; }
+      .toolbar strong { display: none; }
+      .toolbar select { flex: 1; min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <strong>第一次见面 · 西安四晚舒适行</strong>
+    <label for="version-select">查看版本</label>
+    <select id="version-select">
+      <option value="001">001 · 初版</option>
+      <option value="002">002 · 行程优化</option>
+      <option value="003">003 · 天气方案（当前）</option>
+    </select>
+  </header>
+  <div class="status" id="status">正在读取版本…</div>
+  <iframe id="version-frame" title="历史版本行程" hidden></iframe>
+  <script>
+    const versions = new Set(['001', '002', '003']);
+    const params = new URLSearchParams(location.search);
+    const selected = versions.has(params.get('v')) ? params.get('v') : '001';
+    const select = document.getElementById('version-select');
+    const frame = document.getElementById('version-frame');
+    const status = document.getElementById('status');
+    select.value = selected;
+
+    select.addEventListener('change', () => {
+      if (select.value === '003') location.href = './index.html';
+      else location.href = `./archive.html?v=${select.value}`;
+    });
+
+    fetch(`https://raw.githubusercontent.com/zugofn/travel-plans/v${selected}/index.html`)
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
+      .then(html => {
+        frame.srcdoc = html;
+        frame.hidden = false;
+        status.remove();
+      })
+      .catch(() => {
+        status.textContent = '该版本暂时读取失败，请稍后刷新。';
+      });
+  </script>
+</body>
+</html>

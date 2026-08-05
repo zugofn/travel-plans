@@ -263,6 +263,31 @@
       border-left: 3px solid var(--accent);
     }
 
+    .version-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--fg-muted);
+      font-size: 13px;
+    }
+    .version-nav select {
+      min-width: 168px;
+      height: 38px;
+      padding: 0 34px 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--bg-elevated);
+      color: var(--fg);
+      font: inherit;
+      cursor: pointer;
+    }
+    .version-nav select:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     /* ===== Drawer 触发按钮（FAB 风格，移动端触控 ≥44px） ===== */
     .drawer-toggle {
       position: fixed;
@@ -1179,6 +1204,8 @@
         padding: var(--sp-4) var(--sp-4) calc(var(--sp-10) + env(safe-area-inset-bottom, 0px));
       }
       header.hero { padding: 0 0 var(--sp-4); margin-bottom: var(--sp-4); }
+      .version-nav { justify-content: space-between; }
+      .version-nav select { flex: 1; min-width: 0; max-width: 220px; }
       .day-card { padding: var(--sp-4) var(--sp-4) var(--sp-3); }
       .day-card > header h3 { font-size: var(--fs-lg); }
       ol.timeline li.time-block { padding: 4px 0 var(--sp-3) var(--sp-4); }
@@ -1217,6 +1244,15 @@
          缺失/不完整 → 顶部红/黄条
     -->
     <div id="validation-banner" role="status" aria-live="polite" hidden></div>
+
+    <nav class="version-nav" aria-label="行程版本">
+      <label for="version-select">查看版本</label>
+      <select id="version-select">
+        <option value="archive.html?v=001">001 · 初版</option>
+        <option value="archive.html?v=002">002 · 行程优化</option>
+        <option value="index.html" selected>003 · 天气方案（当前）</option>
+      </select>
+    </nav>
 
     <header class="hero">
       <h1>第一次见面 · 西安四晚舒适行 v003</h1>
@@ -4697,6 +4733,11 @@
       } else {
         boot();
       }
+
+      const versionSelect = document.getElementById('version-select');
+      versionSelect?.addEventListener('change', () => {
+        window.location.href = versionSelect.value;
+      });
     })();
   </script>
 </body>
