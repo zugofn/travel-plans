@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v002 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1219,9 +1219,9 @@
     <div id="validation-banner" role="status" aria-live="polite" hidden></div>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v002</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">三天完整游览以历史、戏剧、茶与体面购物为主，白天避热、晚上看大场面。</p>
+      <p class="summary">以历史、秦腔、茶、妆造与体面购物为主；只保留一台大型实景演出，白天避热，户外项目随天气切换。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1384,13 +1384,13 @@
     window.tripData = {
   "$schema": "travel-planner-v2.3",
   "amap_key": "",
-  "trip_name": "第一次见面 · 西安四晚舒适行",
+  "trip_name": "第一次见面 · 西安四晚舒适行 v002",
   "date_range": "2026-08-07 至 2026-08-11",
   "n_days": "5",
   "city": "西安",
   "party_size": 4,
-  "summary": "三天完整游览以历史、戏剧、茶与体面购物为主，白天避热、晚上看大场面。",
-  "weather_plan": "8月7日高德预报小雨转多云、30/24℃；8月8日以后临近出发前逐日复核。户外项目遇强降雨时按卡片内室内备选切换。",
+  "summary": "以历史、秦腔、茶、妆造与体面购物为主；只保留一台大型实景演出，白天避热，户外项目随天气切换。",
+  "weather_plan": "高德西安市（610100）8月5日更新：8月7日多云30/23℃，8月8日多云转晴31/25℃。8月9日至11日超出本次高德稳定预报窗口，须在前一晚逐日复核；长恨歌、华清宫和大唐芙蓉园遇雷雨按卡片备选执行。",
   "trip_center": [
     108.944957,
     34.258921
@@ -1398,18 +1398,22 @@
   "xhs_destination_brief": {
     "must_visit": [
       "兵马俑必须配讲解",
-      "长恨歌优先第一场或第二场并提前安排返程",
+      "长恨歌只保留一台大型实景演出",
       "陕历博只走官方预约",
-      "带父母一天两顿正餐更舒服",
-      "非遗大剧院适合长辈"
+      "叔叔安排秦腔与茶",
+      "阿姨安排妆造和体面购物"
     ],
     "skip_or_caution": [
       "避开赛格",
-      "不安排回民街主街与小南门早市",
+      "小南门早市仅周二至周日06:00-09:00，睡不够或下雨则跳过",
       "暑期避免正午长时间户外",
-      "大唐芙蓉园只走傍晚精华线，不做全天暴走"
+      "大唐芙蓉园只走夜景精华线",
+      "不安排赳赳大秦与SKP"
     ],
-    "region_layout": "钟楼住店；曲江一日；临潼一日；钟楼至沣东一日"
+    "region_layout": "钟楼住店；周六曲江妆造与接风；周日临潼；周一陕历博、易俗社与曲江万象城",
+    "source": "webfetch-degraded",
+    "degraded": true,
+    "pace_hints": "周六早市为可选项；周日不再叠加早起项目；周一全日室内为主。"
   },
   "hotel": {
     "name": "西安钟鼓楼广场亚朵酒店",
@@ -1431,16 +1435,16 @@
       "day": 1,
       "date": "2026-08-07",
       "weekday": "周五",
-      "region": "北站 / 北二环 / 钟楼",
+      "region": "西安北站 / 钟楼",
       "region_flex": true,
-      "theme": "接站与正式接风",
-      "weather": "小雨转多云 30/24℃",
-      "weather_emoji": "雨",
+      "theme": "接站、入住与父母做东",
+      "weather": "多云 30/23℃",
+      "weather_emoji": "多云",
       "center": [
-        108.97505,
-        34.308813
+        108.944957,
+        34.258921
       ],
-      "zoom": 12,
+      "zoom": 11,
       "pois": [
         {
           "idx": 1,
@@ -1450,8 +1454,8 @@
           "lng": 108.938757,
           "lat": 34.37666,
           "duration_min": 20,
-          "note": "在到达层会合后直接叫车，不让长辈拖行李换地铁。",
-          "why": "抵达日以舒适和准时为先。",
+          "note": "在到达层会合后直接叫车；第一晚由叔叔阿姨请客，餐厅按他们的安排走，页面不替他们锁店。",
+          "why": "把主导权留给父母，正式接风放到第二晚。",
           "price": {
             "min": 0,
             "max": 0,
@@ -1462,42 +1466,19 @@
             "total_max": 0,
             "label": "接站",
             "source": "computed",
-            "source_ref": "会合免费"
+            "source_ref": "无额外费用"
           }
         },
         {
           "idx": 2,
-          "time": "18:45",
-          "name": "晓长安·新陕菜（北二环店）",
-          "cat": "food",
-          "lng": 108.97505,
-          "lat": 34.308813,
-          "duration_min": 120,
-          "note": "提前订独立包间，19:00前入席；点菜以葫芦鸡、凉菜、时蔬和不辣主菜为主，辣味单独点。",
-          "why": "距北站顺路，环境与宴请规格足，避免父母抵达后横穿全城。",
-          "price": {
-            "min": 300,
-            "max": 500,
-            "currency": "CNY",
-            "unit": "per_person",
-            "quantity": 4,
-            "total_min": 1200,
-            "total_max": 2000,
-            "label": "接风宴",
-            "source": "amap-mcp",
-            "source_ref": "高德POI详情人均300元；包间按点菜上浮"
-          }
-        },
-        {
-          "idx": 3,
-          "time": "21:25",
+          "time": "18:50",
           "name": "西安钟鼓楼广场亚朵酒店",
           "cat": "hotel",
           "lng": 108.944957,
           "lat": 34.258921,
-          "duration_min": 35,
-          "note": "办理两间房入住；当晚不再安排夜游。",
-          "why": "第一晚留足休息，避免用力过猛。",
+          "duration_min": 60,
+          "note": "先办理两间房入住、放行李；晚餐地点按叔叔阿姨安排叫车，饭后直接休息。",
+          "why": "抵达日不再安排固定景点和正式接风。",
           "price": {
             "min": 0,
             "max": 0,
@@ -1517,9 +1498,9 @@
           "from_idx": 1,
           "to_idx": 2,
           "mode": "driving",
-          "duration_min": 22,
-          "description": "打车15.4公里；高德实时路径基准21分钟，周五晚高峰按30分钟准备。",
-          "distance_m": 15413,
+          "duration_min": 41,
+          "description": "西安北站至酒店17.7公里，高德实时路径约41分钟；周五晚按55分钟准备。",
+          "distance_m": 17740,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -1531,32 +1512,11 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路径已核验，费用以叫车页实时价为准"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 2,
-          "to_idx": 3,
-          "mode": "driving",
-          "duration_min": 26,
-          "description": "打车9.5公里；高德实时路径基准26分钟。",
-          "distance_m": 9466,
-          "source": "amap-mcp",
-          "fare": {
-            "min": 0,
-            "max": 0,
-            "currency": "CNY",
-            "unit": "fixed",
-            "quantity": 1,
-            "total_min": 0,
-            "total_max": 0,
-            "label": "网约车实时计价",
-            "source": "amap-mcp",
-            "source_ref": "高德路径已核验，费用以叫车页实时价为准"
-          }
-        },
-        {
-          "from_idx": 3,
           "to_idx": 0,
           "mode": "walking",
           "duration_min": 1,
@@ -1573,31 +1533,27 @@
             "total_max": 0,
             "label": "同地点",
             "source": "computed",
-            "source_ref": "零元交通"
+            "source_ref": "无额外费用"
           }
         }
       ],
       "meals": {
         "dinner": {
           "main": {
-            "name": "晓长安·新陕菜（北二环店）",
-            "why": "接站顺路、包间宴请；叔叔的不辣菜可单独安排。",
+            "name": "叔叔阿姨安排的晚餐（地点待定）",
+            "why": "第一晚由父母做东，不抢他们的安排；你的正式接风放到第二晚。",
             "price": {
-              "min": 300,
-              "max": 500,
+              "min": 0,
+              "max": 0,
               "currency": "CNY",
-              "unit": "per_person",
-              "quantity": 4,
-              "total_min": 1200,
-              "total_max": 2000,
-              "label": "接风宴",
-              "source": "amap-mcp",
-              "source_ref": "高德POI详情人均300元"
+              "unit": "free",
+              "quantity": 1,
+              "total_min": 0,
+              "total_max": 0,
+              "label": "父母做东",
+              "source": "computed",
+              "source_ref": "不计入你的接待预算"
             }
-          },
-          "alt1": {
-            "name": "铭家家宴·曲江店",
-            "why": "规格更高但从北站绕远，只有晓长安无包间时启用"
           }
         }
       }
@@ -1606,51 +1562,121 @@
       "day": 2,
       "date": "2026-08-08",
       "weekday": "周六",
-      "region": "陕历博 / 大雁塔 / 曲江",
+      "region": "小南门 / 大雁塔 / 曲江",
       "region_flex": true,
-      "theme": "博物馆、寺院、茶与盛唐夜景",
-      "weather": "暑期高温，出发前复核",
+      "theme": "可选早市、妆造、正式接风与盛唐夜景",
+      "weather": "多云转晴 31/25℃",
       "weather_emoji": "晴",
       "center": [
-        108.966388,
-        34.217678
+        108.97,
+        34.2135
       ],
-      "zoom": 13,
+      "zoom": 12,
       "pois": [
         {
           "idx": 1,
-          "time": "09:00",
-          "name": "陕西历史博物馆",
-          "cat": "culture",
-          "lng": 108.961237,
-          "lat": 34.225133,
-          "duration_min": 180,
-          "requires_booking": true,
-          "note": "只认官方微信公众号预约；建议付费精品讲解或语音导览。先看常设展，体力足再加唐代壁画珍品馆。",
-          "why": "西安文化主轴，上午室内避热。",
+          "time": "06:20",
+          "name": "小南门便民早市（可选）",
+          "cat": "market",
+          "type": "outdoor",
+          "tags": [
+            "outdoor"
+          ],
+          "lng": 108.93592,
+          "lat": 34.251947,
+          "duration_min": 70,
+          "weather_sensitive": true,
+          "indoor_backup": "若下雨或前夜休息不足，直接取消早市并在酒店吃早餐",
+          "note": "高德显示周二至周日06:00-09:00。女朋友带父母去，控制在70分钟内；不排网红长队，7:30前返酒店。",
+          "why": "周六是唯一不与临潼长日冲突的开放日，但舒适度优先，睡不够就跳过。",
           "price": {
             "min": 0,
-            "max": 270,
+            "max": 0,
             "currency": "CNY",
-            "unit": "per_person",
-            "quantity": 4,
+            "unit": "free",
+            "quantity": 1,
             "total_min": 0,
-            "total_max": 1080,
-            "label": "基本陈列免费；壁画馆自选",
-            "source": "official-site",
-            "source_ref": "陕西历史博物馆官方导览"
+            "total_max": 0,
+            "label": "早市入场",
+            "source": "computed",
+            "source_ref": "无额外费用"
           }
         },
         {
           "idx": 2,
-          "time": "13:15",
+          "time": "07:40",
+          "name": "酒店早餐与休息",
+          "cat": "hotel",
+          "lng": 108.944957,
+          "lat": 34.258921,
+          "duration_min": 80,
+          "note": "早市后补水、早餐和短休；叔叔不参加妆造，可继续休息后再到曲江会合。",
+          "why": "用一段明确休息抵消早起。",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "CNY",
+            "unit": "free",
+            "quantity": 1,
+            "total_min": 0,
+            "total_max": 0,
+            "label": "早餐按房价",
+            "source": "computed",
+            "source_ref": "含早则无额外费用"
+          }
+        },
+        {
+          "idx": 3,
+          "time": "09:10",
+          "name": "大唐不夜城汉服妆造（女友与阿姨）",
+          "cat": "experience",
+          "lng": 108.966621,
+          "lat": 34.213396,
+          "duration_min": 110,
+          "requires_booking": true,
+          "note": "以轩影阁汉服馆所在的慈恩东路区域作路线锚点，最终店名、服装级别和价格由女朋友确认；叔叔可晚些出发或在附近茶歇。",
+          "why": "上午光线和妆面状态更好，晚上直接带妆逛芙蓉园。",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "CNY",
+            "unit": "fixed",
+            "quantity": 1,
+            "total_min": 0,
+            "total_max": 0,
+            "label": "女友确认订单后填写",
+            "source": "amap-mcp",
+            "source_ref": "高德核验店址与09:00-23:00营业；价格未公开，不计入预算"
+          },
+          "slot_costs": [
+            {
+              "label": "妆造订单",
+              "user_editable": true,
+              "price": {
+                "min": 0,
+                "max": 1500,
+                "currency": "CNY",
+                "unit": "fixed",
+                "quantity": 1,
+                "total_min": 0,
+                "total_max": 1500,
+                "label": "由女友按订单填写",
+                "source": "computed",
+                "source_ref": "用户可编辑预算"
+              }
+            }
+          ]
+        },
+        {
+          "idx": 4,
+          "time": "11:15",
           "name": "大慈恩寺",
           "cat": "culture",
           "lng": 108.96418,
           "lat": 34.217954,
           "duration_min": 75,
-          "note": "不安排登塔，把体力留给晚上；寺内慢走即可。",
-          "why": "玄奘与大雁塔的历史线，比单纯外广场拍照更完整。",
+          "note": "不登塔，寺内慢走；叔叔与全家在这里会合。",
+          "why": "妆造点步行可达，保留玄奘与大雁塔历史线。",
           "price": {
             "min": 40,
             "max": 40,
@@ -1665,32 +1691,55 @@
           }
         },
         {
-          "idx": 3,
-          "time": "14:40",
-          "name": "十三茶舍（唐大慈恩寺遗址公园）",
+          "idx": 5,
+          "time": "14:00",
+          "name": "十三茶舍",
           "cat": "tea",
-          "lng": 108.966388,
-          "lat": 34.217678,
+          "lng": 108.967236,
+          "lat": 34.217463,
           "duration_min": 90,
-          "note": "叔叔的专属偏好段，也给全家补水、坐下休息。",
-          "why": "在大雁塔区域内完成喝茶和休息，不额外折返。",
+          "note": "午餐后坐下喝茶，叔叔的偏好段；高德显示10:00-23:00、人均约28元。",
+          "why": "下午最热时完全室内休息，为晚宴和夜景留体力。",
           "price": {
-            "min": 50,
-            "max": 120,
+            "min": 28,
+            "max": 28,
             "currency": "CNY",
             "unit": "per_person",
             "quantity": 4,
-            "total_min": 200,
-            "total_max": 480,
+            "total_min": 112,
+            "total_max": 112,
             "label": "茶歇",
             "source": "amap-mcp",
-            "source_ref": "高德POI详情及店内实时菜单"
+            "source_ref": "高德POI详情人均28元"
           }
         },
         {
-          "idx": 4,
+          "idx": 6,
           "time": "17:00",
-          "name": "大唐芙蓉园傍晚精华线",
+          "name": "铭家家宴·海鲜青岛菜·院子餐厅（曲江店）",
+          "cat": "food",
+          "lng": 108.975841,
+          "lat": 34.20719,
+          "duration_min": 120,
+          "note": "提前订安静包间，说明第一次正式见面；菜单以海鲜、清淡主菜和时蔬为主，辣味单点。高德显示17:00-22:00、评分4.8、人均约308元。",
+          "why": "规格足、服务场景正式，又离芙蓉园近；比第一晚北站顺路宴更适合从容接风。",
+          "price": {
+            "min": 308,
+            "max": 308,
+            "currency": "CNY",
+            "unit": "per_person",
+            "quantity": 4,
+            "total_min": 1232,
+            "total_max": 1232,
+            "label": "正式接风宴",
+            "source": "amap-mcp",
+            "source_ref": "高德POI详情人均308元"
+          }
+        },
+        {
+          "idx": 7,
+          "time": "19:30",
+          "name": "大唐芙蓉园夜景精华线",
           "cat": "scenery",
           "type": "outdoor",
           "tags": [
@@ -1699,11 +1748,11 @@
           ],
           "lng": 108.97436,
           "lat": 34.212717,
-          "duration_min": 180,
+          "duration_min": 120,
           "weather_sensitive": true,
-          "indoor_backup": "西安万象城（生命之树）+ 晓长安新陕菜",
-          "note": "只走紫云楼、芙蓉湖和夜景精华，不追全部小演出；20:00前视体力结束。",
-          "why": "满足阿姨喜欢热闹和场面的偏好，同时控制步数。",
+          "indoor_backup": "遇雷雨取消园区，改西安万象城生命之树室内夜景与咖啡休息",
+          "note": "只走紫云楼、芙蓉湖和夜景精华；不追全部小演出，21:30前结束。",
+          "why": "阿姨带妆拍照效果最好，也满足热闹和场面的偏好。",
           "price": {
             "min": 120,
             "max": 120,
@@ -1723,9 +1772,9 @@
           "from_idx": 0,
           "to_idx": 1,
           "mode": "driving",
-          "duration_min": 21,
-          "description": "酒店打车至陕历博5.8公里，高德基准约20分钟。",
-          "distance_m": 5837,
+          "duration_min": 8,
+          "description": "酒店至小南门1.9公里，高德约8分钟。",
+          "distance_m": 1927,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -1737,16 +1786,16 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 1,
           "to_idx": 2,
           "mode": "driving",
-          "duration_min": 23,
-          "description": "核心区拥堵，2.4公里高德基准约22分钟；叫车慢时步行或短途出租。",
-          "distance_m": 2373,
+          "duration_min": 11,
+          "description": "小南门返酒店2.3公里，高德约11分钟。",
+          "distance_m": 2283,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -1756,18 +1805,39 @@
             "quantity": 1,
             "total_min": 0,
             "total_max": 0,
-            "label": "短途车实时计价",
+            "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 2,
           "to_idx": 3,
+          "mode": "driving",
+          "duration_min": 25,
+          "description": "酒店至慈恩东路妆造点7.5公里，高德约25分钟。",
+          "distance_m": 7476,
+          "source": "amap-mcp",
+          "fare": {
+            "min": 0,
+            "max": 0,
+            "currency": "CNY",
+            "unit": "fixed",
+            "quantity": 1,
+            "total_min": 0,
+            "total_max": 0,
+            "label": "网约车实时计价",
+            "source": "amap-mcp",
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
+          }
+        },
+        {
+          "from_idx": 3,
+          "to_idx": 4,
           "mode": "walking",
-          "duration_min": 8,
-          "description": "寺院至遗址公园茶舍，区域内慢走。",
-          "distance_m": 450,
+          "duration_min": 11,
+          "description": "妆造点步行至大慈恩寺约778米，高德约10分钟。",
+          "distance_m": 778,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -1779,16 +1849,37 @@
             "total_max": 0,
             "label": "步行",
             "source": "computed",
-            "source_ref": "零元交通"
+            "source_ref": "无额外费用"
           }
         },
         {
-          "from_idx": 3,
-          "to_idx": 4,
+          "from_idx": 4,
+          "to_idx": 5,
+          "mode": "walking",
+          "duration_min": 9,
+          "description": "大慈恩寺步行至十三茶舍约609米，高德约8分钟。",
+          "distance_m": 609,
+          "source": "amap-mcp",
+          "fare": {
+            "min": 0,
+            "max": 0,
+            "currency": "CNY",
+            "unit": "free",
+            "quantity": 1,
+            "total_min": 0,
+            "total_max": 0,
+            "label": "步行",
+            "source": "computed",
+            "source_ref": "无额外费用"
+          }
+        },
+        {
+          "from_idx": 5,
+          "to_idx": 6,
           "mode": "driving",
-          "duration_min": 17,
-          "description": "大雁塔区域至大唐芙蓉园约2.5公里，高德基准约16分钟。",
-          "distance_m": 2539,
+          "duration_min": 7,
+          "description": "十三茶舍至铭家曲江店2.0公里，高德约7分钟。",
+          "distance_m": 2028,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -1800,15 +1891,36 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
-          "from_idx": 4,
+          "from_idx": 6,
+          "to_idx": 7,
+          "mode": "walking",
+          "duration_min": 19,
+          "description": "铭家步行至大唐芙蓉园约1.38公里，高德约18分钟；如长辈不想走则短途叫车。",
+          "distance_m": 1380,
+          "source": "amap-mcp",
+          "fare": {
+            "min": 0,
+            "max": 0,
+            "currency": "CNY",
+            "unit": "free",
+            "quantity": 1,
+            "total_min": 0,
+            "total_max": 0,
+            "label": "步行",
+            "source": "computed",
+            "source_ref": "无额外费用"
+          }
+        },
+        {
+          "from_idx": 7,
           "to_idx": 0,
           "mode": "driving",
-          "duration_min": 31,
-          "description": "大唐芙蓉园返酒店11.5公里，高德基准约30分钟。",
+          "duration_min": 34,
+          "description": "大唐芙蓉园返酒店11.5公里，高德约34分钟。",
           "distance_m": 11528,
           "source": "amap-mcp",
           "fare": {
@@ -1821,15 +1933,15 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         }
       ],
       "meals": {
         "lunch": {
           "main": {
-            "name": "陕历博周边简餐",
-            "why": "少量、清淡、快速，不用为网红店排队。",
+            "name": "大雁塔区域清淡午餐",
+            "why": "大慈恩寺后就近吃，避免网红排队；吃完直接到茶舍休息。",
             "price": {
               "min": 50,
               "max": 100,
@@ -1840,25 +1952,27 @@
               "total_max": 400,
               "label": "午餐",
               "source": "amap-mcp",
-              "source_ref": "周边餐饮高德价位"
+              "source_ref": "大雁塔周边高德价位"
             }
           }
         },
         "dinner": {
           "main": {
-            "name": "大唐芙蓉园周边陕菜",
-            "why": "园区傍晚路线内解决，避免先吃饭再折返。",
+            "name": "铭家家宴·海鲜青岛菜·院子餐厅（曲江店）",
+            "why": "第二晚正式接风，安静包间、规格足且步行可到芙蓉园。",
+            "lng": 108.975841,
+            "lat": 34.20719,
             "price": {
-              "min": 80,
-              "max": 150,
+              "min": 308,
+              "max": 308,
               "currency": "CNY",
               "unit": "per_person",
               "quantity": 4,
-              "total_min": 320,
-              "total_max": 600,
-              "label": "晚餐",
+              "total_min": 1232,
+              "total_max": 1232,
+              "label": "正式接风宴",
               "source": "amap-mcp",
-              "source_ref": "高德POI价位"
+              "source_ref": "高德POI详情人均308元"
             }
           }
         }
@@ -2136,50 +2250,74 @@
       "day": 4,
       "date": "2026-08-10",
       "weekday": "周一",
-      "region": "钟楼 / 南门 / 沣东",
+      "region": "小寨 / 钟楼 / 曲江",
       "region_flex": true,
-      "theme": "非遗戏曲、买礼物与赳赳大秦",
-      "weather": "室内为主",
+      "theme": "陕历博、百年秦腔与体面购物",
+      "weather": "全日室内为主，出发前复核高温与降雨",
       "weather_emoji": "室内",
       "center": [
-        108.948733,
-        34.247559
+        108.949055,
+        34.224199
       ],
       "zoom": 12,
       "pois": [
         {
           "idx": 1,
-          "time": "11:00",
-          "name": "西安非遗大剧院（钟楼店）",
-          "cat": "show",
-          "lng": 108.943707,
-          "lat": 34.258181,
-          "duration_min": 75,
-          "note": "暑期高德场次显示11:00、12:30、14:00、16:00、18:00；先电话/平台确认11:00场。",
-          "why": "秦腔、皮影、木偶等组合最贴合叔叔偏好，且离酒店近。",
+          "time": "09:00",
+          "name": "陕西历史博物馆",
+          "cat": "culture",
+          "lng": 108.955044,
+          "lat": 34.224199,
+          "duration_min": 180,
+          "requires_booking": true,
+          "note": "只认官方预约；优先常设展和精品讲解，体力足再加壁画馆。",
+          "why": "把暑期室内文化主轴放在周一，避开妆造日的节奏冲突。",
           "price": {
-            "min": 92,
-            "max": 180,
+            "min": 0,
+            "max": 270,
             "currency": "CNY",
             "unit": "per_person",
             "quantity": 4,
-            "total_min": 368,
-            "total_max": 720,
-            "label": "演出票",
-            "source": "amap-mcp",
-            "source_ref": "高德POI详情参考价92元"
+            "total_min": 0,
+            "total_max": 1080,
+            "label": "基本陈列免费；壁画馆自选",
+            "source": "official-site",
+            "source_ref": "陕西历史博物馆官方导览"
           }
         },
         {
           "idx": 2,
-          "time": "14:00",
-          "name": "西安SKP",
+          "time": "14:15",
+          "name": "易俗社文化街区＋秦风源非遗剧场",
+          "cat": "show",
+          "lng": 108.949055,
+          "lat": 34.261008,
+          "duration_min": 75,
+          "note": "高德显示秦风源每日10:00-20:30、评分4.6、人均约51元；优先选秦腔/皮影/非遗组合场，具体场次在8月9日晚确认。",
+          "why": "以小剧场和百年秦腔替代赳赳大秦，和长恨歌形成“传统戏曲 vs 大型实景”的差异。",
+          "price": {
+            "min": 51,
+            "max": 51,
+            "currency": "CNY",
+            "unit": "per_person",
+            "quantity": 4,
+            "total_min": 204,
+            "total_max": 204,
+            "label": "非遗小剧场",
+            "source": "amap-mcp",
+            "source_ref": "高德POI详情人均51元"
+          }
+        },
+        {
+          "idx": 3,
+          "time": "16:15",
+          "name": "西安万象城（生命之树）",
           "cat": "shopping",
-          "lng": 108.948733,
-          "lat": 34.247559,
+          "lng": 108.949454,
+          "lat": 34.195779,
           "duration_min": 210,
-          "note": "不去赛格。优先看女装、丝巾、护肤和珠宝；先让阿姨逛，不急着替她做决定。10楼书店可供叔叔休息。",
-          "why": "品牌完整、环境安静，适合认真买礼物。",
+          "note": "不去赛格、不去SKP。先看女装、丝巾、护肤和珠宝；高德核验有海蓝之谜、周生生、江南布衣、鄂尔多斯，也有更亲民品牌，消费层级自然。叔叔可在咖啡或书店休息。",
+          "why": "环境与品牌足够体面，又不会像第一次见面直接逛SKP那样给阿姨压力；生命之树本身也有场面。",
           "price": {
             "min": 0,
             "max": 0,
@@ -2190,7 +2328,7 @@
             "total_max": 0,
             "label": "入场免费，购物自定",
             "source": "computed",
-            "source_ref": "商场免费入场"
+            "source_ref": "无额外费用"
           },
           "slot_costs": [
             {
@@ -2210,61 +2348,37 @@
               }
             }
           ]
-        },
-        {
-          "idx": 3,
-          "time": "19:45",
-          "name": "《赳赳大秦》第二场（A区或贵宾B区）",
-          "cat": "show",
-          "lng": 108.830064,
-          "lat": 34.261176,
-          "duration_min": 70,
-          "requires_booking": true,
-          "note": "实名制票证人一致；18:20从SKP出发，19:15前到场。开演15分钟后无法入场。",
-          "why": "机械移动观众席与秦史叙事，补足阿姨想要的震撼场面。",
-          "price": {
-            "min": 458,
-            "max": 588,
-            "currency": "CNY",
-            "unit": "per_person",
-            "quantity": 4,
-            "total_min": 1832,
-            "total_max": 2352,
-            "label": "A区或贵宾B区",
-            "source": "official-site",
-            "source_ref": "赳赳大秦官方预订页2026票价"
-          }
         }
       ],
       "transports": [
         {
           "from_idx": 0,
           "to_idx": 1,
-          "mode": "walking",
-          "duration_min": 6,
-          "description": "酒店步行至竹芭市非遗大剧院。",
-          "distance_m": 420,
+          "mode": "driving",
+          "duration_min": 21,
+          "description": "酒店至陕历博5.8公里，高德基准约20分钟。",
+          "distance_m": 5837,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
             "max": 0,
             "currency": "CNY",
-            "unit": "free",
+            "unit": "fixed",
             "quantity": 1,
             "total_min": 0,
             "total_max": 0,
-            "label": "步行",
-            "source": "computed",
-            "source_ref": "零元交通"
+            "label": "网约车实时计价",
+            "source": "amap-mcp",
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 1,
           "to_idx": 2,
           "mode": "driving",
-          "duration_min": 15,
-          "description": "钟楼至永宁门SKP，午间打车并留上下车时间。",
-          "distance_m": 2400,
+          "duration_min": 23,
+          "description": "陕历博至易俗社6.1公里，高德约22分钟。",
+          "distance_m": 6050,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -2276,16 +2390,16 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 2,
           "to_idx": 3,
           "mode": "driving",
-          "duration_min": 26,
-          "description": "SKP至赳赳大秦15.8公里，高德基准约25分钟；晚高峰按45分钟预留。",
-          "distance_m": 15848,
+          "duration_min": 29,
+          "description": "易俗社至西安万象城9.2公里，高德约28分钟。",
+          "distance_m": 9187,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -2297,16 +2411,16 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         },
         {
           "from_idx": 3,
           "to_idx": 0,
           "mode": "driving",
-          "duration_min": 29,
-          "description": "赳赳大秦返酒店11.2公里，高德基准约28分钟。",
-          "distance_m": 11183,
+          "duration_min": 25,
+          "description": "西安万象城返酒店8.2公里，高德约25分钟。",
+          "distance_m": 8201,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -2318,15 +2432,15 @@
             "total_max": 0,
             "label": "网约车实时计价",
             "source": "amap-mcp",
-            "source_ref": "高德路线"
+            "source_ref": "高德路线实算；费用以叫车页实时价为准"
           }
         }
       ],
       "meals": {
         "lunch": {
           "main": {
-            "name": "钟楼附近清淡午餐",
-            "why": "非遗演出后就近吃，避免赶场。",
+            "name": "陕历博附近清淡午餐",
+            "why": "12:15出馆后就近吃，13:35前出发去易俗社。",
             "price": {
               "min": 60,
               "max": 120,
@@ -2337,14 +2451,14 @@
               "total_max": 480,
               "label": "午餐",
               "source": "amap-mcp",
-              "source_ref": "钟楼餐饮高德价位"
+              "source_ref": "小寨周边高德价位"
             }
           }
         },
         "dinner": {
           "main": {
-            "name": "西安SKP提前晚餐",
-            "why": "17:15用餐，18:20出发去剧场。",
+            "name": "西安万象城内晚餐",
+            "why": "逛累后直接在商场内吃，选择清淡餐厅，不再赶下一场演出。",
             "price": {
               "min": 100,
               "max": 200,
@@ -2355,7 +2469,7 @@
               "total_max": 800,
               "label": "晚餐",
               "source": "amap-mcp",
-              "source_ref": "SKP餐饮高德价位"
+              "source_ref": "商场餐饮高德价位"
             }
           }
         }
@@ -2463,12 +2577,20 @@
       "reason": "用户明确要求避开。"
     },
     {
-      "item": "西安饭庄作为接风宴",
-      "reason": "店级小红书近期对出品和预制感的负面反馈较集中，不拿第一次见面冒险。"
+      "item": "赳赳大秦",
+      "reason": "与长恨歌同属大型历史旅游演艺，视觉和叙事功能重复；改为易俗社秦风源小剧场。"
     },
     {
-      "item": "鸽子侯作为接风宴",
-      "reason": "近期存在漏单、温度和乳鸽出品稳定性的具体投诉，改为备选之外。"
+      "item": "西安SKP",
+      "reason": "第一次给阿姨逛街心理压力偏大；改为品牌层级更宽、环境仍体面的西安万象城。"
+    },
+    {
+      "item": "西安非遗大剧院周一场",
+      "reason": "高德同时出现周一闭馆与暑期场次信息，开放口径有歧义；改选每日开放的秦风源非遗剧场。"
+    },
+    {
+      "item": "晓长安北二环接风宴",
+      "reason": "第一晚由叔叔阿姨做东，正式接风挪到第二晚；曲江铭家更从容且紧邻芙蓉园。"
     }
   ],
   "prebook": [
@@ -2480,15 +2602,22 @@
       "price_note": "以携程实时价为准"
     },
     {
-      "item": "晓长安北二环店包间",
-      "deadline": "2026-08-05前",
+      "item": "曲江汉服妆造",
+      "day": 2,
+      "deadline": "2026-08-06前",
       "url": null,
-      "note": "确认包间最低消费、生日/迎宾布置无需夸张，菜单含不辣菜"
+      "note": "女朋友确认最终店名、服装级别、是否含摄影；路线暂以慈恩东路轩影阁区域为锚点"
+    },
+    {
+      "item": "铭家家宴曲江店安静包间",
+      "deadline": "2026-08-06前",
+      "url": null,
+      "note": "8月8日17:00，说明第一次正式见面；确认包间最低消费和不辣菜（非重预约，时间可协商）"
     },
     {
       "item": "陕西历史博物馆官方预约",
-      "day": 2,
-      "deadline": "立即检查8月8日余票",
+      "day": 4,
+      "deadline": "立即检查8月10日余票",
       "url": "https://www.sxhm.com/guide.html",
       "note": "仅官方微信公众号；第三方捆绑票不买"
     },
@@ -2500,11 +2629,10 @@
       "note": "一次核对兵马俑、华清宫、《长恨歌》中区第一场与返程安排"
     },
     {
-      "item": "赳赳大秦19:45场",
-      "day": 4,
-      "deadline": "立即",
-      "url": "https://jjdq.changhenge.cn/",
-      "note": "实名制，优先A区或贵宾B区，票证人一致"
+      "item": "秦风源非遗剧场场次",
+      "deadline": "2026-08-09晚确认",
+      "url": null,
+      "note": "优先14:15前后秦腔/皮影/非遗组合场；多场次非重预约，无合适场次则只逛易俗社街区并喝茶"
     }
   ],
   "validation_report": {
@@ -2512,55 +2640,57 @@
       {
         "round": 1,
         "phase": "结构筛",
-        "focus": "删点、分组、一天一区、用户禁忌",
+        "focus": "重排接风、演出、商场、早市与妆造",
         "issues": [
-          "删除动物园与海洋馆，避免暑期暴晒和亲子项目挤占父母偏好",
-          "赛格已完全屏蔽",
-          "接风宴排除西安饭庄与鸽子侯的店级稳定性风险"
+          "第一晚改为父母做东，正式接风挪到周六曲江",
+          "删除赳赳大秦与SKP",
+          "小南门早市仅周二至周日开放，放周六且设为可选",
+          "陕历博移到周一"
         ],
         "conclusion": "通过，进入Round 2",
         "rules": [
           {
             "id": "V1",
             "status": "✅",
-            "note": "曲江、临潼、钟楼/沣东按日分组"
+            "note": "周六曲江、周日临潼、周一室内文化与购物"
           },
           {
             "id": "V4",
             "status": "✅",
-            "note": "每天最多一个集中重预约"
+            "note": "周六仅妆造重预约，周一仅陕历博重预约"
           },
           {
             "id": "V7",
             "status": "✅",
-            "note": "赛格未出现在方案；无动物园、海洋馆"
+            "note": "赛格、赳赳大秦与SKP均已移除"
           }
         ]
       },
       {
         "round": 2,
         "phase": "时空筛",
-        "focus": "高德实算与父母舒适度",
+        "focus": "高德MCP实算新增路段",
         "issues": [
-          "临潼返城高德基准60分钟，散场按80分钟留缓冲",
-          "SKP至赳赳大秦高德基准25分钟，按晚高峰45分钟预留"
+          "北站至酒店高德约41分钟",
+          "铭家至芙蓉园步行约18分钟",
+          "陕历博至易俗社约22分钟，易俗社至万象城约28分钟"
         ],
         "conclusion": "通过，进入Round 3",
         "rules": [
           {
             "id": "V2",
             "status": "✅",
-            "note": "所有时间块可衔接"
+            "note": "所有时间块保留餐间与上下车缓冲"
           },
           {
             "id": "V5",
             "status": "✅",
-            "note": "末日自然醒且建议11:30后车次"
+            "note": "末日仍自然醒返程"
           },
           {
             "id": "V8",
             "status": "✅",
-            "note": "18段交通均有高德来源"
+            "note": "新增交通全部来自高德MCP"
           },
           {
             "id": "V9",
@@ -2577,28 +2707,29 @@
       {
         "round": 3,
         "phase": "体验筛",
-        "focus": "餐饮、天气备选、演出与购物",
+        "focus": "正式接风、天气备选、传统戏曲与体面购物",
         "issues": [
-          "接风宴选晓长安北二环店并要求包间与不辣菜",
-          "大唐芙蓉园遇强降雨切换万象城",
-          "给阿姨买礼物安排SKP，叔叔可在书店休息"
+          "铭家曲江评分4.8、人均约308元、17:00开餐",
+          "周六早市为可选，雨天或睡不够直接取消",
+          "赳赳大秦改为秦风源小剧场",
+          "SKP改为西安万象城生命之树"
         ],
         "conclusion": "通过，进入HTML交付",
         "rules": [
           {
             "id": "V3",
             "status": "✅",
-            "note": "餐饮均在当日区域内解决"
+            "note": "接风宴与周六曲江路线一致"
           },
           {
             "id": "V6",
             "status": "✅",
-            "note": "户外项目均有室内备选"
+            "note": "早市、芙蓉园、华清宫与长恨歌均有天气备选"
           },
           {
             "id": "V10",
             "status": "✅",
-            "note": "景点、餐饮、演出均有来源标价；实时打车不编造固定金额"
+            "note": "新增POI与交通均记录高德或官方来源"
           }
         ]
       }
@@ -2654,19 +2785,19 @@
     "currency": "CNY",
     "by_category": {
       "food": {
-        "min": 3040,
-        "max": 5240,
-        "note": "4人，不含酒店早餐"
+        "min": 2664,
+        "max": 3984,
+        "note": "4人；第一晚父母做东不计入，妆造价格待女朋友补充"
       },
       "tickets": {
-        "min": 5316,
-        "max": 7196,
-        "note": "含三场演出；陕历博壁画馆为可选"
+        "min": 3320,
+        "max": 4400,
+        "note": "含大慈恩寺、芙蓉园、兵马俑、华清宫、长恨歌、秦风源；陕历博壁画馆可选"
       },
       "transport_local": {
         "min": 0,
         "max": 0,
-        "note": "所有网约车以叫车页实时计价，不编造固定金额"
+        "note": "网约车以叫车页实时计价，不编造固定金额"
       },
       "hotel": {
         "min": 0,
@@ -2679,11 +2810,11 @@
         "note": "给阿姨买礼物的可编辑预算，不计入刚性开支"
       }
     },
-    "total_min": 8356,
-    "total_max": 12436,
-    "per_person_min": 2089,
-    "per_person_max": 3109,
-    "disclaimer": "不含酒店、往返高铁、实时打车和购物；购物预算单独列示。"
+    "total_min": 7216,
+    "total_max": 8384,
+    "per_person_min": 1804,
+    "per_person_max": 2096,
+    "disclaimer": "不含酒店、往返高铁、实时打车、妆造订单和购物；购物预算单独列示。"
   }
 };
   </script>
