@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v002 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v003 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1219,9 +1219,9 @@
     <div id="validation-banner" role="status" aria-live="polite" hidden></div>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v002</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v003</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">以历史、秦腔、茶、妆造与体面购物为主；只保留一台大型实景演出，白天避热，户外项目随天气切换。</p>
+      <p class="summary">双源天气驱动的舒适行程：每天均给出正常执行的 Plan A 与降雨雷暴时的 Plan B。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1260,7 +1260,7 @@
     </main>
 
     <footer class="bottom">
-      <p>由 <strong>travel-planner</strong> skill 生成 · 数据来源：高德 MCP / 小红书 MCP</p>
+      <p>由 <strong>travel-planner</strong> skill 生成 · 数据来源：高德 MCP / Open-Meteo MCP / 小红书调研</p>
       <p>计划 = 参考坐标 · 天气 / 体力 / 饥饿均可覆盖</p>
     </footer>
 
@@ -1384,13 +1384,13 @@
     window.tripData = {
   "$schema": "travel-planner-v2.3",
   "amap_key": "",
-  "trip_name": "第一次见面 · 西安四晚舒适行 v002",
+  "trip_name": "第一次见面 · 西安四晚舒适行 v003",
   "date_range": "2026-08-07 至 2026-08-11",
   "n_days": "5",
   "city": "西安",
   "party_size": 4,
-  "summary": "以历史、秦腔、茶、妆造与体面购物为主；只保留一台大型实景演出，白天避热，户外项目随天气切换。",
-  "weather_plan": "高德西安市（610100）8月5日更新：8月7日多云30/23℃，8月8日多云转晴31/25℃。8月9日至11日超出本次高德稳定预报窗口，须在前一晚逐日复核；长恨歌、华清宫和大唐芙蓉园遇雷雨按卡片备选执行。",
+  "summary": "双源天气驱动的舒适行程：每天均给出正常执行的 Plan A 与降雨雷暴时的 Plan B。",
+  "weather_plan": "**数据更新时间：2026-08-05。**\n\n高德（西安市 610100）：8月7日多云 30/23℃；8月8日多云转晴 31/25℃，当前只返回至8月8日。\n\nOpen-Meteo（西安市中心 34.3416,108.9398）：8月7日雷暴风险、29.4/22.2℃、降水概率84%；8月8日弱降水、31.3/23.6℃、降水概率76%；8月9日至11日晴，最高降水概率分别15%、6%、16%。\n\n**执行规则：** 7日至8日存在明显分歧，不提前取消；每天前一晚20:00及出发前2小时复核。若出现雷电预警、逐小时降水概率≥60%或景区/演出停演通知，切换 Plan B；仅多云或短时小雨则执行 Plan A并缩短户外停留。",
   "trip_center": [
     108.944957,
     34.258921
@@ -1438,8 +1438,8 @@
       "region": "西安北站 / 钟楼",
       "region_flex": true,
       "theme": "接站、入住与父母做东",
-      "weather": "多云 30/23℃",
-      "weather_emoji": "多云",
+      "weather": "双源分歧：高德多云30/23℃；Open-Meteo雷暴风险84%",
+      "weather_emoji": "天气待复核",
       "center": [
         108.944957,
         34.258921
@@ -1556,7 +1556,8 @@
             }
           }
         }
-      }
+      },
+      "weather_decision": "**Plan A｜无雷电预警：** 按原计划接站、叫车、入住和父母做东晚餐。\n\n**Plan B｜雷暴或强降雨：** 女朋友在站内到达层接人，车辆到指定上客点后再出站；不在北站周边等位，入住后由叔叔阿姨在酒店附近或酒店内安排晚餐。备好三把长柄伞和一次性鞋套。"
     },
     {
       "day": 2,
@@ -1565,8 +1566,8 @@
       "region": "小南门 / 大雁塔 / 曲江",
       "region_flex": true,
       "theme": "可选早市、妆造、正式接风与盛唐夜景",
-      "weather": "多云转晴 31/25℃",
-      "weather_emoji": "晴",
+      "weather": "双源分歧：高德多云转晴31/25℃；Open-Meteo弱降水76%",
+      "weather_emoji": "降雨分歧",
       "center": [
         108.97,
         34.2135
@@ -1976,7 +1977,8 @@
             }
           }
         }
-      }
+      },
+      "weather_decision": "**Plan A｜无持续降雨：** 早市可选，妆造、大慈恩寺、茶歇、铭家接风及大唐芙蓉园夜景按原时刻执行。短时小雨只取消早市，芙蓉园缩为紫云楼与湖边精华线。\n\n**Plan B｜雷电预警或19:00后降水概率≥60%：** 取消早市；妆造、茶歇和铭家接风照常。晚饭后不进芙蓉园，改到西安万象城生命之树室内区域散步、拍照和咖啡休息，21:15前返酒店。芙蓉园票在前一晚先核对退改规则。"
     },
     {
       "day": 3,
@@ -1985,7 +1987,7 @@
       "region": "临潼",
       "region_flex": true,
       "theme": "兵马俑、华清宫与长恨歌",
-      "weather": "暑期高温，出发前复核",
+      "weather": "Open-Meteo晴30.3/23.5℃，降水概率15%；高德待进入预报窗口",
       "weather_emoji": "晴",
       "center": [
         109.248908,
@@ -2244,7 +2246,8 @@
             }
           }
         }
-      }
+      },
+      "weather_decision": "**Plan A｜预报稳定：** 兵马俑、华清宫和《长恨歌》第一场按原计划执行；正午减少露天停留，多补水。\n\n**Plan B｜临时雷雨或停演：** 兵马俑保留，以一、二、三号坑等有顶区域为主；华清宫压缩或取消。若《长恨歌》官方通知停演，直接按退改规则处理并返城休息，不临时塞入另一台大型演出。"
     },
     {
       "day": 4,
@@ -2253,8 +2256,8 @@
       "region": "小寨 / 钟楼 / 曲江",
       "region_flex": true,
       "theme": "陕历博、百年秦腔与体面购物",
-      "weather": "全日室内为主，出发前复核高温与降雨",
-      "weather_emoji": "室内",
+      "weather": "Open-Meteo晴30.1/21.6℃，降水概率6%；高德待进入预报窗口",
+      "weather_emoji": "晴",
       "center": [
         108.949055,
         34.224199
@@ -2473,7 +2476,8 @@
             }
           }
         }
-      }
+      },
+      "weather_decision": "**Plan A｜正常天气：** 陕西历史博物馆、易俗社与秦风源、西安万象城按原计划执行。\n\n**Plan B｜突发降雨或高温不适：** 行程本身以室内为主，取消易俗社街区的露天慢逛，陕历博后直接到秦风源看合适场次，再进万象城购物；不增加额外景点。"
     },
     {
       "day": 5,
@@ -2482,7 +2486,7 @@
       "region": "钟楼 / 西安北站",
       "region_flex": true,
       "theme": "自然醒返程",
-      "weather": "出发前复核",
+      "weather": "Open-Meteo晴31.3/22.5℃，降水概率16%；高德待进入预报窗口",
       "weather_emoji": "返程",
       "center": [
         108.944957,
@@ -2560,7 +2564,8 @@
           }
         }
       ],
-      "meals": {}
+      "meals": {},
+      "weather_decision": "**Plan A｜路况正常：** 自然醒、退房后按车次倒推前往西安北站。\n\n**Plan B｜降雨或道路积水：** 不安排早餐外出，酒店内解决；叫车时间比正常方案提前20分钟，并在酒店大堂等车，避免长辈拖行李淋雨。"
     }
   ],
   "deleted": [
@@ -2640,96 +2645,93 @@
       {
         "round": 1,
         "phase": "结构筛",
-        "focus": "重排接风、演出、商场、早市与妆造",
+        "focus": "v002主线冻结，仅新增逐日双方案",
         "issues": [
-          "第一晚改为父母做东，正式接风挪到周六曲江",
-          "删除赳赳大秦与SKP",
-          "小南门早市仅周二至周日开放，放周六且设为可选",
-          "陕历博移到周一"
+          "v002标签与当前提交一致，餐厅、POI和通勤均未改动",
+          "Plan B不新增重预约项目"
         ],
         "conclusion": "通过，进入Round 2",
         "rules": [
           {
             "id": "V1",
             "status": "✅",
-            "note": "周六曲江、周日临潼、周一室内文化与购物"
+            "note": "Plan A沿用原分区，Plan B仅缩短或切换同类室内活动"
           },
           {
             "id": "V4",
             "status": "✅",
-            "note": "周六仅妆造重预约，周一仅陕历博重预约"
+            "note": "Plan B未增加重预约"
           },
           {
             "id": "V7",
             "status": "✅",
-            "note": "赛格、赳赳大秦与SKP均已移除"
+            "note": "赛格、赳赳大秦与SKP仍未进入活动方案"
           }
         ]
       },
       {
         "round": 2,
         "phase": "时空筛",
-        "focus": "高德MCP实算新增路段",
+        "focus": "核对天气切换不破坏交通与返程",
         "issues": [
-          "北站至酒店高德约41分钟",
-          "铭家至芙蓉园步行约18分钟",
-          "陕历博至易俗社约22分钟，易俗社至万象城约28分钟"
+          "Plan B只减少户外段或提前返店",
+          "Day 2雨天备选使用既有曲江万象城锚点",
+          "Day 5雨天提前20分钟叫车"
         ],
         "conclusion": "通过，进入Round 3",
         "rules": [
           {
             "id": "V2",
             "status": "✅",
-            "note": "所有时间块保留餐间与上下车缓冲"
+            "note": "Plan B通勤不长于原计划"
           },
           {
             "id": "V5",
             "status": "✅",
-            "note": "末日仍自然醒返程"
+            "note": "返程缓冲进一步增加"
           },
           {
             "id": "V8",
             "status": "✅",
-            "note": "新增交通全部来自高德MCP"
+            "note": "Plan A交通仍全部来自高德MCP"
           },
           {
             "id": "V9",
             "status": "✅",
-            "note": "通勤时间物理下限通过"
+            "note": "原高德实算时长未被修改"
           },
           {
             "id": "V13",
             "status": "✅",
-            "note": "酒店早晚段完整"
+            "note": "每天仍以酒店为起终锚点"
           }
         ]
       },
       {
         "round": 3,
         "phase": "体验筛",
-        "focus": "正式接风、天气备选、传统戏曲与体面购物",
+        "focus": "高德与Open-Meteo双源天气、老人舒适度与退改风险",
         "issues": [
-          "铭家曲江评分4.8、人均约308元、17:00开餐",
-          "周六早市为可选，雨天或睡不够直接取消",
-          "赳赳大秦改为秦风源小剧场",
-          "SKP改为西安万象城生命之树"
+          "7日至8日双源预报冲突，保留分歧并设置明确切换阈值",
+          "长恨歌停演不再临时塞入同型大型演出",
+          "雨天取消早市与露天慢逛"
         ],
         "conclusion": "通过，进入HTML交付",
         "rules": [
           {
             "id": "V3",
             "status": "✅",
-            "note": "接风宴与周六曲江路线一致"
+            "note": "接风宴不受天气切换影响"
           },
           {
             "id": "V6",
             "status": "✅",
-            "note": "早市、芙蓉园、华清宫与长恨歌均有天气备选"
+            "note": "全部户外段均有Plan B与切换阈值"
           },
           {
             "id": "V10",
             "status": "✅",
-            "note": "新增POI与交通均记录高德或官方来源"
+            "note": "天气分别记录高德MCP与Open-Meteo MCP原始字段"
           }
         ]
       }
@@ -2815,6 +2817,85 @@
     "per_person_min": 1496,
     "per_person_max": 1788,
     "disclaimer": "不含酒店、往返高铁、实时打车、妆造订单和购物；购物预算单独列示。"
+  },
+  "weather_sources": {
+    "updated_at": "2026-08-05T12:03:00+08:00",
+    "amap": {
+      "city": "西安市",
+      "adcode": "610100",
+      "forecast": [
+        {
+          "date": "2026-08-07",
+          "day": "多云",
+          "night": "多云",
+          "max_c": 30,
+          "min_c": 23,
+          "wind": "北风1-3级"
+        },
+        {
+          "date": "2026-08-08",
+          "day": "多云",
+          "night": "晴",
+          "max_c": 31,
+          "min_c": 25,
+          "wind": "北风1-3级"
+        }
+      ]
+    },
+    "open_meteo": {
+      "location": {
+        "lat": 34.3416,
+        "lng": 108.9398,
+        "timezone": "Asia/Shanghai"
+      },
+      "forecast": [
+        {
+          "date": "2026-08-07",
+          "weather_code": 96,
+          "condition": "雷暴风险",
+          "max_c": 29.4,
+          "min_c": 22.2,
+          "precipitation_mm": 2.5,
+          "precipitation_probability_max": 84
+        },
+        {
+          "date": "2026-08-08",
+          "weather_code": 51,
+          "condition": "弱降水",
+          "max_c": 31.3,
+          "min_c": 23.6,
+          "precipitation_mm": 1.1,
+          "precipitation_probability_max": 76
+        },
+        {
+          "date": "2026-08-09",
+          "weather_code": 0,
+          "condition": "晴",
+          "max_c": 30.3,
+          "min_c": 23.5,
+          "precipitation_mm": 0,
+          "precipitation_probability_max": 15
+        },
+        {
+          "date": "2026-08-10",
+          "weather_code": 0,
+          "condition": "晴",
+          "max_c": 30.1,
+          "min_c": 21.6,
+          "precipitation_mm": 0,
+          "precipitation_probability_max": 6
+        },
+        {
+          "date": "2026-08-11",
+          "weather_code": 0,
+          "condition": "晴",
+          "max_c": 31.3,
+          "min_c": 22.5,
+          "precipitation_mm": 0,
+          "precipitation_probability_max": 16
+        }
+      ]
+    }
   }
 };
   </script>
