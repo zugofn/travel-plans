@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v003 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v004 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -883,6 +883,53 @@
     .place .cat.scenery { background: #e2efe7; color: #1f5a3a; }
     .place .cat.culture { background: #ede4f5; color: #4f2a82; }
     .place .cat.shopping { background: #fbe2e9; color: #96223f; }
+    .mall-choice {
+      margin: var(--sp-5) 0 0;
+      border-top: 1px solid var(--line-strong);
+    }
+    .mall-choice-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-3);
+      padding: var(--sp-4) 0 var(--sp-2);
+    }
+    .mall-choice-header h4 { margin: 0; font-size: var(--fs-lg); }
+    .mall-choice-current { color: var(--accent); font-size: var(--fs-sm); font-weight: 700; text-align: right; }
+    .mall-option {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto;
+      gap: var(--sp-3);
+      align-items: start;
+      padding: var(--sp-4) 0;
+      border-top: 1px solid var(--line);
+    }
+    .mall-option:first-of-type { border-top: 0; }
+    .mall-option.is-selected .mall-option-name { color: var(--accent); }
+    .mall-option-select {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: var(--bg-elevated);
+      color: var(--fg-muted);
+      font: 700 var(--fs-base)/1 inherit;
+      cursor: pointer;
+    }
+    .mall-option.is-selected .mall-option-select { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .mall-option-name { margin: 0; font-size: var(--fs-base); }
+    .mall-option-tag { display: inline-block; margin-left: var(--sp-2); color: var(--fg-muted); font-size: var(--fs-xs); font-weight: 500; }
+    .mall-option-meta, .mall-option-note { margin: var(--sp-1) 0 0; color: var(--fg-muted); font-size: var(--fs-sm); }
+    .mall-option-note { color: var(--fg); }
+    .mall-option-map { white-space: nowrap; color: var(--accent); font-size: var(--fs-sm); text-decoration: none; }
+    .mall-option-map:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      .mall-choice-header { display: block; }
+      .mall-choice-current { margin-top: var(--sp-1); text-align: left; }
+      .mall-option { grid-template-columns: 38px minmax(0, 1fr); }
+      .mall-option-map { grid-column: 2; }
+    }
     .place .cat.hotel { background: #e6e9ee; color: #3a4150; }
     .place .cat.transport { background: #dde7f0; color: #1e4a72; }
     .place .weather-sensitive {
@@ -1250,14 +1297,15 @@
       <select id="version-select">
         <option value="archive.html?v=001">001 · 初版</option>
         <option value="archive.html?v=002">002 · 行程优化</option>
-        <option value="index.html" selected>003 · 天气方案（当前）</option>
+        <option value="archive.html?v=003">003 · 天气方案</option>
+        <option value="index.html" selected>004 · 商场四选一（当前）</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v003</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v004</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">双源天气驱动的舒适行程：仅在天气风险足以影响核心行程时显示 Plan B；天气稳定的日期只保留正常执行方案。</p>
+      <p class="summary">双源天气驱动的舒适行程；8月10日购物时段提供开元钟楼、万象城、砂之船与中大高新四选一方案。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1420,7 +1468,7 @@
     window.tripData = {
   "$schema": "travel-planner-v2.3",
   "amap_key": "",
-  "trip_name": "第一次见面 · 西安四晚舒适行 v003",
+  "trip_name": "第一次见面 · 西安四晚舒适行 v004",
   "date_range": "2026-08-07 至 2026-08-11",
   "n_days": "5",
   "city": "西安",
@@ -1446,7 +1494,7 @@
       "大唐芙蓉园只走夜景精华线",
       "不安排赳赳大秦与SKP"
     ],
-    "region_layout": "钟楼住店；周六曲江妆造与接风；周日临潼；周一陕历博、易俗社与曲江万象城",
+    "region_layout": "钟楼住店；周六曲江妆造与接风；周日临潼；周一陕历博、易俗社与商场四选一",
     "source": "webfetch-degraded",
     "degraded": true,
     "pace_hints": "周六早市为可选项；周日不再叠加早起项目；周一全日室内为主。"
@@ -2291,7 +2339,7 @@
       "weekday": "周一",
       "region": "小寨 / 钟楼 / 曲江",
       "region_flex": true,
-      "theme": "陕历博、百年秦腔与体面购物",
+      "theme": "陕历博、百年秦腔与商场四选一",
       "weather": "Open-Meteo晴30.1/21.6℃，降水概率6%；高德待进入预报窗口",
       "weather_emoji": "晴",
       "center": [
@@ -2350,13 +2398,13 @@
         {
           "idx": 3,
           "time": "16:15",
-          "name": "西安万象城（生命之树）",
+          "name": "购物四选一（默认A开元钟楼）",
           "cat": "shopping",
-          "lng": 108.949454,
-          "lat": 34.195779,
-          "duration_min": 210,
-          "note": "不去赛格、不去SKP。先看女装、丝巾、护肤和珠宝；高德核验有海蓝之谜、周生生、江南布衣、鄂尔多斯，也有更亲民品牌，消费层级自然。叔叔可在咖啡或书店休息。",
-          "why": "环境与品牌足够体面，又不会像第一次见面直接逛SKP那样给阿姨压力；生命之树本身也有场面。",
+          "lng": 108.948139,
+          "lat": 34.258584,
+          "duration_min": 180,
+          "note": "不去赛格、不去SKP。默认执行A开元钟楼；页面下方可在A/B/C/D中现场选定一家，四家不是连续行程。",
+          "why": "把购物偏好留到见面后决定：实际购买、环境体验、品牌折扣与品质女装各有对应方案。",
           "price": {
             "min": 0,
             "max": 0,
@@ -2387,6 +2435,52 @@
               }
             }
           ]
+        }
+      ],
+      "mall_options": [
+        {
+          "code": "A",
+          "name": "开元商城钟楼店",
+          "tag": "最稳妥 · 默认",
+          "lng": 108.948139,
+          "lat": 34.258584,
+          "hours": "周一10:00-22:00",
+          "route": "易俗社→商场约9分钟/1.5公里；商场→酒店约9分钟/1.8公里",
+          "fit": "服装、鞋履和美妆更容易真正买到，路线最轻松。",
+          "caution": "新鲜感不如万象城，但第一次见面分寸最稳。"
+        },
+        {
+          "code": "B",
+          "name": "西安万象城（生命之树）",
+          "tag": "环境体验",
+          "lng": 108.949454,
+          "lat": 34.195779,
+          "hours": "周一10:00-22:00",
+          "route": "易俗社→商场约30分钟/9.2公里；商场→酒店约27分钟/8.2公里",
+          "fit": "环境、拍照和热闹氛围最好，适合随意逛、遇到合适再买。",
+          "caution": "价位偏高；不要把消费变成必须完成的任务。"
+        },
+        {
+          "code": "C",
+          "name": "砂之船（西安）奥莱",
+          "tag": "折扣专项",
+          "lng": 109.045721,
+          "lat": 34.344414,
+          "hours": "周一10:00-22:00",
+          "route": "易俗社→商场约41分钟/18.8公里；商场→酒店约47分钟/21.1公里",
+          "fit": "明确想买成熟女装、鞋包或运动品牌时选择，预留至少3小时。",
+          "caution": "高通勤；旧款、断码和凑件折扣常见，16:00前须离开易俗社。"
+        },
+        {
+          "code": "D",
+          "name": "中大国际商业中心（高新店）",
+          "tag": "品质女装",
+          "lng": 108.897231,
+          "lat": 34.222482,
+          "hours": "周一10:00-22:00",
+          "route": "易俗社→商场约29分钟/9.3公里；商场→酒店约34分钟/8.3公里",
+          "fit": "偏好品质女装、鞋包和安静环境时选择。",
+          "caution": "需要专程前往，品牌价位整体高于开元。"
         }
       ],
       "transports": [
@@ -2436,9 +2530,9 @@
           "from_idx": 2,
           "to_idx": 3,
           "mode": "driving",
-          "duration_min": 29,
-          "description": "易俗社至西安万象城9.2公里，高德约28分钟。",
-          "distance_m": 9187,
+          "duration_min": 9,
+          "description": "默认A：易俗社至开元商城钟楼店1.5公里，高德约9分钟；选B/C/D时按四选一模块路线执行。",
+          "distance_m": 1468,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -2457,9 +2551,9 @@
           "from_idx": 3,
           "to_idx": 0,
           "mode": "driving",
-          "duration_min": 25,
-          "description": "西安万象城返酒店8.2公里，高德约25分钟。",
-          "distance_m": 8201,
+          "duration_min": 10,
+          "description": "默认A：开元商城钟楼店返酒店1.8公里，高德约9分钟；选B/C/D时按四选一模块路线执行。",
+          "distance_m": 1779,
           "source": "amap-mcp",
           "fare": {
             "min": 0,
@@ -2496,8 +2590,8 @@
         },
         "dinner": {
           "main": {
-            "name": "西安万象城内晚餐",
-            "why": "逛累后直接在商场内吃，选择清淡餐厅，不再赶下一场演出。",
+            "name": "所选商场内晚餐",
+            "why": "逛累后直接在所选商场内吃，选择清淡餐厅，不再赶下一场演出。选A也可返回钟楼附近就餐。",
             "price": {
               "min": 100,
               "max": 200,
@@ -2513,7 +2607,7 @@
           }
         }
       },
-      "weather_decision": "**当前执行：正常方案。** Open-Meteo 预报晴，最高降水概率6%，且当天主体为室内活动，不设置 Plan B。陕西历史博物馆、易俗社、秦风源和西安万象城按原计划执行。"
+      "weather_decision": "**当前执行：正常方案。** Open-Meteo 预报晴，最高降水概率6%，且当天主体为室内活动，不设置天气 Plan B。购物采用偏好四选一：默认A开元；重环境选B万象城；明确扫货选C砂之船；偏品质女装选D中大高新。C通勤最长，临时遇高温或降雨不建议选择。"
     },
     {
       "day": 5,
@@ -4075,6 +4169,33 @@
         const wsTag = d.weather_decision ?
           `<p class="note" style="margin-top:8px">📋 ${mdLite(d.weather_decision)}</p>` : '';
 
+        const mallOptions = Array.isArray(d.mall_options) ? d.mall_options : [];
+        const mallChoiceKey = `travel-mall-choice-v004-day-${d.day}`;
+        const storedMallChoice = localStorage.getItem(mallChoiceKey);
+        const selectedMallCode = mallOptions.some(option => option.code === storedMallChoice)
+          ? storedMallChoice
+          : (mallOptions[0]?.code || '');
+        const mallOptionsHtml = mallOptions.length ? `
+          <section class="mall-choice" aria-labelledby="mall-choice-title">
+            <div class="mall-choice-header">
+              <h4 id="mall-choice-title">购物方案 · 四选一</h4>
+              <div class="mall-choice-current" id="mall-choice-current">当前选择：${esc(selectedMallCode)}</div>
+            </div>
+            ${mallOptions.map(option => {
+              const selected = option.code === selectedMallCode;
+              const mapHref = `https://uri.amap.com/marker?position=${encodeURIComponent(`${option.lng},${option.lat}`)}&name=${encodeURIComponent(option.name)}&src=travel-plan&coordinate=gaode&callnative=1`;
+              return `<div class="mall-option${selected ? ' is-selected' : ''}" data-mall-option="${esc(option.code)}">
+                <button type="button" class="mall-option-select" data-mall-select="${esc(option.code)}" aria-pressed="${selected}" aria-label="选择方案${esc(option.code)}：${esc(option.name)}">${esc(option.code)}</button>
+                <div>
+                  <h5 class="mall-option-name">${esc(option.name)}<span class="mall-option-tag">${esc(option.tag)}</span></h5>
+                  <p class="mall-option-meta">${esc(option.hours)} · ${esc(option.route)}</p>
+                  <p class="mall-option-note">${esc(option.fit)} ${esc(option.caution)}</p>
+                </div>
+                <a class="mall-option-map" href="${esc(mapHref)}" target="_blank" rel="noopener">高德查看</a>
+              </div>`;
+            }).join('')}
+          </section>` : '';
+
         // 收集要"嵌入"到 POI 卡片末尾的 meal：按时段匹配第一个符合的 POI，
         // 没匹配到的 fallback 到最后 POI
         const mealsUsed = { breakfast: false, lunch: false, dinner: false };
@@ -4206,8 +4327,23 @@
             </header>
             <p class="theme">${esc(d.theme || '')}</p>
             <ol class="timeline">${morningLegHtml}${poiItems}</ol>
+            ${mallOptionsHtml}
             ${wsTag}
           </article>`;
+        document.querySelectorAll('[data-mall-select]').forEach(button => {
+          button.addEventListener('click', () => {
+            const code = button.dataset.mallSelect;
+            localStorage.setItem(mallChoiceKey, code);
+            document.querySelectorAll('[data-mall-option]').forEach(row => {
+              const active = row.dataset.mallOption === code;
+              row.classList.toggle('is-selected', active);
+              row.querySelector('[data-mall-select]')?.setAttribute('aria-pressed', String(active));
+            });
+            const option = mallOptions.find(item => item.code === code);
+            const current = document.getElementById('mall-choice-current');
+            if (current) current.textContent = `当前选择：${code} · ${option?.name || ''}`;
+          });
+        });
         bindUserBudgetInputs();
         bindCostMarginInteractions();
         bindDayRouteButtons();
