@@ -3623,9 +3623,13 @@
       function renderHotel() {
         const h = D.hotel || {};
         if (h.commute && h.commute.length) {
-          const items = h.commute.map(c =>
-            `<li>Day ${c.day} ${esc(c.region)}：${esc(c.mode)} ${c.duration_min} 分钟</li>`
-          ).join('');
+          const items = h.commute.map(c => {
+            if (typeof c === 'string') return `<li>${esc(c)}</li>`;
+            const label = c.label || c.region || c.name || '';
+            const mode = c.mode ? `${esc(c.mode)} ` : '';
+            const duration = c.duration_min === undefined ? '' : `${c.duration_min} 分钟`;
+            return `<li>${c.day ? `Day ${esc(c.day)} ` : ''}${esc(label)}：${mode}${duration}</li>`;
+          }).join('');
           document.getElementById('hotel-commute').innerHTML =
             `<details class="hotel-commute"><summary>每天通勤（点击展开）</summary>
               <ul>${items}</ul>
