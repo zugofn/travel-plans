@@ -1366,6 +1366,8 @@
     // 1. URL 加 ?k=YOUR_KEY 参数（如 https://xxx.github.io/.../x.html?k=YOUR_KEY）
     // 2. localStorage 设置 amap_web_key（持久化，一次设置永久）
     // 3. 空 → 地图降级为文字版行程
+    window._AMapSecurityConfig = { securityJsCode: "2606bc704fe5e4b7c003e41881150b8d" };
+    window.AMAP_KEY = "f68b1fc1bb56884f496a3920374a5d9e";
     (function injectAmapKey() {
       if (window.AMAP_KEY) return;  // 已注入
       // 1. URL 参数 ?k=KEY
