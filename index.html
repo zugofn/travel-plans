@@ -266,7 +266,7 @@
     .version-nav {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
       gap: 10px;
       margin-bottom: 14px;
       color: var(--fg-muted);
@@ -1204,8 +1204,8 @@
         padding: var(--sp-4) var(--sp-4) calc(var(--sp-10) + env(safe-area-inset-bottom, 0px));
       }
       header.hero { padding: 0 0 var(--sp-4); margin-bottom: var(--sp-4); }
-      .version-nav { justify-content: space-between; }
-      .version-nav select { flex: 1; min-width: 0; max-width: 220px; }
+      .version-nav { justify-content: flex-start; padding-right: 96px; }
+      .version-nav select { flex: 0 1 168px; min-width: 0; max-width: 168px; }
       .day-card { padding: var(--sp-4) var(--sp-4) var(--sp-3); }
       .day-card > header h3 { font-size: var(--fs-lg); }
       ol.timeline li.time-block { padding: 4px 0 var(--sp-3) var(--sp-4); }
