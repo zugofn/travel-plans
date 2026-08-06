@@ -1321,7 +1321,7 @@
     <header class="hero">
       <h1>第一次见面 · 西安四晚舒适行 v006</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；每日只显示当天相关方案，8月10日固定为父母专项就医日。</p>
+      <p class="summary">入住西安广成大酒店；每日只显示当天相关方案，8月10日固定为父母专项就医日。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -3156,6 +3156,101 @@
     weather_decision: '**固定医疗日：** 8月10日不因晴天恢复西安博物院、易俗社或商场。Plan A在西安市第一医院集中完成；Plan B按当天最终号源分流，以已确认的诊次和检查为主，不跨院硬赶。若16:00前全部结束，也只返回酒店休息或就近吃饭。'
   });
 })();
+
+// v006 hotel-anchor update: switch confirmed hotel to Guangcheng Hotel and keep the
+// previous Jinhai Yufu anchor as a comparison baseline.
+(() => {
+  const D = window.tripData;
+  if (!D) return;
+
+  const newHotel = {
+    name: '西安广成大酒店',
+    short_name: '广成大酒店',
+    address: '西安市莲湖区劳动南路与草阳巷路口东北角',
+    lng: 108.910722,
+    lat: 34.254416,
+    amap_uri: 'https://uri.amap.com/marker?position=108.910722,34.254416&name=西安广成大酒店',
+    why: '已确定入住；位置从玉祥门向西南移动到劳动南路/大唐西市一带，去大唐西市、机场巴士西稍门线、妆造和曲江方向略友好；去西安北站、西京医院、交大二附院会比金海御府略远。订两间房并备注安静房、远离电梯和临街面、尽量同层。',
+    commute: [
+      '酒店来源：高德/携程同址校对，劳动南路与草阳巷路口东北角；携程页显示近大唐西市地铁站约280米。',
+      '相对金海御府：酒店锚点约向西南移动2.1公里；更靠近大唐西市、西稍门与南郊方向，离玉祥门/城墙西北侧稍远。',
+      '医疗日影响：到第一医院直线差异约+0.4公里，基本同级；到交大一附院约-1.1公里更近；到西京约+1.3公里、交大二约+1.6公里更远。',
+      '行程影响：小南门早市基本不变；曲江妆造/大唐芙蓉园约近0.5公里；西安北站约远2.0公里，8月11日早高峰建议仍按60分钟门到门预留。',
+      '数据说明：本次高德MCP POI搜索连续审批超时，Web Key直调路线返回USERKEY_PLAT_NOMATCH；未伪造分钟数，出发前以高德App门到门复核。'
+    ],
+    comparison: {
+      baseline: '金海御府酒店（西安明城墙玉祥门地铁站店）',
+      baseline_lng: 108.922174,
+      baseline_lat: 34.270608,
+      source_note: 'POI/坐标来自高德页面与携程酒店页交叉校对；路线分钟数因当前MCP route不可用，保留为出发前复核项。'
+    },
+    booking_note: '2026-08-07入住、08-11退房，共4晚；叔叔单住1间，阿姨与女朋友住1间。'
+  };
+
+  D.hotel = newHotel;
+  D.trip_center = [newHotel.lng, newHotel.lat];
+  D.summary = '入住西安广成大酒店；每日只显示当天相关方案，8月10日固定为父母专项就医日。';
+  if (D.xhs_destination_brief) {
+    D.xhs_destination_brief.region_layout = '广成大酒店住店；周六小南门/曲江妆造、晚宴与盛唐夜景；周日临潼；周一固定父母专项就医';
+  }
+
+  const oldHotelPattern = /金海御府酒店|金海御府|玉祥门店|玉祥门位置|玉祥门/u;
+  const replaceHotelText = value => typeof value === 'string'
+    ? value.replace(oldHotelPattern, '广成大酒店')
+    : value;
+
+  function patchPoi(poi) {
+    if (!poi) return;
+    if (poi.cat === 'hotel' || (typeof poi.name === 'string' && oldHotelPattern.test(poi.name))) {
+      poi.name = replaceHotelText(poi.name || newHotel.name) || newHotel.name;
+      if (!poi.name.includes('广成')) poi.name = newHotel.name;
+      poi.lng = newHotel.lng;
+      poi.lat = newHotel.lat;
+      poi.cat = 'hotel';
+    }
+    ['note', 'why', 'description'].forEach(key => {
+      if (poi[key]) poi[key] = replaceHotelText(poi[key]);
+    });
+  }
+
+  (D.days || []).forEach(day => {
+    if (Array.isArray(day.center) && day.center[0] === 108.922174 && day.center[1] === 34.270608) {
+      day.center = [newHotel.lng, newHotel.lat];
+    }
+    (day.pois || []).forEach(patchPoi);
+    (day.transports || []).forEach(t => {
+      if (t.description) t.description = replaceHotelText(t.description);
+    });
+    if (day.date === '2026-08-10') {
+      day.region = '广成大酒店 / 就诊医院';
+      day.center = [108.944962, 34.254547];
+      day.weather_decision = '**固定医疗日：** 8月10日不因晴天恢复西安博物院、易俗社或商场。Plan A在西安市第一医院集中完成；Plan B按当天最终号源分流，以已确认的诊次和检查为主，不跨院硬赶。若16:00前全部结束，也只返回酒店休息或就近吃饭。广成大酒店相对金海御府到交大一更近，到西京/交大二略远，分流当天务必按最终号源打开高德复核。';
+    }
+  });
+
+  (D.prebook || []).forEach(item => {
+    if (item.item) item.item = replaceHotelText(item.item).replace('广成大酒店酒店', '广成大酒店');
+    if (item.note) item.note = replaceHotelText(item.note);
+  });
+
+  if (D.validation_report && Array.isArray(D.validation_report.rounds)) {
+    D.validation_report.rounds.push({
+      round: 'v006-hotel',
+      phase: '酒店锚点增量复核',
+      focus: '酒店从金海御府切换为西安广成大酒店',
+      issues: [
+        '新酒店高德/携程地址与坐标已交叉校对',
+        '当前高德MCP搜索审批超时，REST路线因Web Key平台类型不匹配未返回驾车分钟数',
+        '页面不伪造新分钟数，保留坐标差异与出发前高德App复核提醒'
+      ],
+      conclusion: '通过增量展示；路线分钟数待现场或可用route MCP复核',
+      rules: [
+        { id: 'V13', status: '✅', note: '每天起终点酒店锚点已统一改为广成大酒店' },
+        { id: 'V8', status: '⚠️', note: 'POI/地址完成校对；route MCP本轮不可用，已在页面标注限制' }
+      ]
+    });
+  }
+})();
   </script>
 
   <!-- ===== 渲染逻辑 ===== -->
@@ -4092,6 +4187,16 @@
       // ===== Hotel =====
       function renderHotel() {
         const h = D.hotel || {};
+        const nameEl = document.getElementById('hotel-name');
+        const addressEl = document.getElementById('hotel-address');
+        const whyEl = document.getElementById('hotel-why');
+        const linksEl = document.getElementById('hotel-links');
+        if (nameEl) nameEl.innerHTML = `<span class="hotel-emoji">🏨</span> ${esc(h.name || '酒店')}`;
+        if (addressEl) addressEl.textContent = h.address || '';
+        if (whyEl) whyEl.textContent = h.why || '';
+        if (linksEl && h.amap_uri) {
+          linksEl.innerHTML = `<a href="${esc(h.amap_uri)}" target="_blank" rel="noopener">高德</a>`;
+        }
         if (h.commute && h.commute.length) {
           const items = h.commute.map(c => {
             if (typeof c === 'string') return `<li>${esc(c)}</li>`;
