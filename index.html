@@ -925,6 +925,7 @@
     .mall-option-map { white-space: nowrap; color: var(--accent); font-size: var(--fs-sm); text-decoration: none; }
     .mall-option-map:hover { text-decoration: underline; }
     .decision-hub { display: grid; gap: var(--sp-4); margin-bottom: var(--sp-4); }
+    .decision-hub[hidden], .decision-card[hidden] { display: none; }
     .decision-card { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); overflow: hidden; }
     .decision-card > h3 { margin: 0; padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--border); font-size: var(--fs-lg); }
     .decision-option { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: var(--sp-3); align-items: start; padding: var(--sp-3) var(--sp-4); border-top: 1px solid var(--border); }
@@ -1354,8 +1355,8 @@
         </div>
       </section>
 
-      <section class="decision-hub" aria-label="关键方案选择">
-        <article class="decision-card" data-choice-card="dinner">
+      <section class="decision-hub" id="decision-hub" aria-label="当前日期方案选择" hidden>
+        <article class="decision-card" data-choice-card="dinner" data-choice-day="2" hidden>
           <h3>8月8日正式接风宴 · 二选一</h3>
           <div class="decision-option is-selected" data-choice-option="dinner-A">
             <button class="decision-select" type="button" data-choice-button="dinner-A" aria-pressed="true">A</button>
@@ -1370,7 +1371,7 @@
           <div class="decision-status" data-choice-status="dinner">当前选择：Plan A 铭家曲江店</div>
         </article>
 
-        <article class="decision-card" data-choice-card="medical">
+        <article class="decision-card" data-choice-card="medical" data-choice-day="4" hidden>
           <h3>8月10日父母专项就医 · 二选一</h3>
           <div class="decision-option is-selected" data-choice-option="medical-A">
             <button class="decision-select" type="button" data-choice-button="medical-A" aria-pressed="true">A</button>
@@ -4666,6 +4667,14 @@
           t.classList.toggle('active', isActive);
           t.setAttribute('aria-selected', isActive);
         });
+        const decisionHub = document.getElementById('decision-hub');
+        let hasVisibleDecision = false;
+        decisionHub?.querySelectorAll('[data-choice-day]').forEach(card => {
+          const isRelevant = parseInt(card.dataset.choiceDay) === dayIdx;
+          card.hidden = !isRelevant;
+          hasVisibleDecision ||= isRelevant;
+        });
+        if (decisionHub) decisionHub.hidden = !hasVisibleDecision;
         renderDayPanel(dayIdx);
         updateMap(dayIdx);
       }
