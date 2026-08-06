@@ -30,14 +30,15 @@
       <option value="002">002 · 行程优化</option>
       <option value="003">003 · 天气方案</option>
       <option value="004">004 · 商场四选一</option>
-      <option value="005">005 · 西安博物院替代方案（当前）</option>
+      <option value="005">005 · 西安博物院替代方案</option>
+      <option value="006">006 · 酒店、晚宴与医疗双方案（当前）</option>
     </select>
     <strong>第一次见面 · 西安四晚舒适行</strong>
   </header>
   <div class="status" id="status">正在读取版本…</div>
   <iframe id="version-frame" title="历史版本行程" hidden></iframe>
   <script>
-    const versions = new Set(['001', '002', '003', '004', '005']);
+    const versions = new Set(['001', '002', '003', '004', '005', '006']);
     const params = new URLSearchParams(location.search);
     const selected = versions.has(params.get('v')) ? params.get('v') : '001';
     const select = document.getElementById('version-select');
@@ -46,7 +47,7 @@
     select.value = selected;
 
     select.addEventListener('change', () => {
-      if (select.value === '005') location.href = './index.html';
+      if (select.value === '006') location.href = './index.html';
       else location.href = `./archive.html?v=${select.value}`;
     });
 

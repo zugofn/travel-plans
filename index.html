@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v005 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v006 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -924,6 +924,19 @@
     .mall-option-note { color: var(--fg); }
     .mall-option-map { white-space: nowrap; color: var(--accent); font-size: var(--fs-sm); text-decoration: none; }
     .mall-option-map:hover { text-decoration: underline; }
+    .decision-hub { display: grid; gap: var(--sp-4); margin-bottom: var(--sp-4); }
+    .decision-card { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); overflow: hidden; }
+    .decision-card > h3 { margin: 0; padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--border); font-size: var(--fs-lg); }
+    .decision-option { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: var(--sp-3); align-items: start; padding: var(--sp-3) var(--sp-4); border-top: 1px solid var(--border); }
+    .decision-option:first-of-type { border-top: 0; }
+    .decision-option.is-selected { background: #f6f9ff; }
+    .decision-select { width: 38px; height: 38px; padding: 0; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--fg); font-weight: 800; cursor: pointer; }
+    .decision-option.is-selected .decision-select { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .decision-option h4 { margin: 0; font-size: var(--fs-base); }
+    .decision-option p { margin: var(--sp-1) 0 0; color: var(--fg-muted); font-size: var(--fs-sm); line-height: 1.55; }
+    .decision-option a { color: var(--accent); font-size: var(--fs-sm); white-space: nowrap; text-decoration: none; }
+    .decision-status { padding: 0 var(--sp-4) var(--sp-3); color: var(--accent); font-size: var(--fs-sm); font-weight: 700; }
+    @media (max-width: 600px) { .decision-option { grid-template-columns: 38px minmax(0,1fr); } .decision-option a { grid-column: 2; } }
     @media (max-width: 600px) {
       .mall-choice-header { display: block; }
       .mall-choice-current { margin-top: var(--sp-1); text-align: left; }
@@ -1299,14 +1312,15 @@
         <option value="archive.html?v=002">002 · 行程优化</option>
         <option value="archive.html?v=003">003 · 天气方案</option>
         <option value="archive.html?v=004">004 · 商场四选一</option>
-        <option value="index.html" selected>005 · 西安博物院替代方案（当前）</option>
+        <option value="archive.html?v=005">005 · 西安博物院替代方案</option>
+        <option value="index.html" selected>006 · 酒店、晚宴与医疗双方案（当前）</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v005</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v006</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">陕历博未约到后，8月10日改为西安博物院与小雁塔；下午继续易俗社，购物仍保留四选一。</p>
+      <p class="summary">入住金海御府；接风宴与专项就医均提供可切换双方案，号源落定后再覆盖对应旅游时段。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1338,6 +1352,38 @@
             <div id="map"></div>
           </div>
         </div>
+      </section>
+
+      <section class="decision-hub" aria-label="关键方案选择">
+        <article class="decision-card" data-choice-card="dinner">
+          <h3>8月8日正式接风宴 · 二选一</h3>
+          <div class="decision-option is-selected" data-choice-option="dinner-A">
+            <button class="decision-select" type="button" data-choice-button="dinner-A" aria-pressed="true">A</button>
+            <div><h4>铭家家宴·海鲜青岛菜·院子餐厅（曲江店）</h4><p>默认方案。包间接待更稳、口味可照顾叔叔不重辣，且与十三茶舍和芙蓉园衔接最顺。</p></div>
+            <a href="https://uri.amap.com/marker?position=108.975841,34.207190&name=铭家家宴曲江店" target="_blank" rel="noopener">高德</a>
+          </div>
+          <div class="decision-option" data-choice-option="dinner-B">
+            <button class="decision-select" type="button" data-choice-button="dinner-B" aria-pressed="false">B</button>
+            <div><h4>晓长安·新陕菜（曲江店）</h4><p>陕西地域感更强；高德当前显示人均约300元、17:00-21:00营业。距离芙蓉园更远，选择后需把晚餐提前并全程打车。</p></div>
+            <a href="https://uri.amap.com/marker?position=109.022916,34.195004&name=晓长安新陕菜曲江店" target="_blank" rel="noopener">高德</a>
+          </div>
+          <div class="decision-status" data-choice-status="dinner">当前选择：Plan A 铭家曲江店</div>
+        </article>
+
+        <article class="decision-card" data-choice-card="medical">
+          <h3>父母专项就医 · 号源日期未定</h3>
+          <div class="decision-option is-selected" data-choice-option="medical-A">
+            <button class="decision-select" type="button" data-choice-button="medical-A" aria-pressed="true">A</button>
+            <div><h4>确定性优先 · 西安市第一医院一院完成</h4><p>皮肤、眼科、消化、神内均有确定号，酒店出发高德基准约3.7公里/15分钟。阿姨同一眼病曾在此就诊，眼科仅作兜底，不把重复就诊包装成专科升级。</p></div>
+            <a href="https://uri.amap.com/marker?position=108.944962,34.254547&name=西安市第一医院" target="_blank" rel="noopener">高德</a>
+          </div>
+          <div class="decision-option" data-choice-option="medical-B">
+            <button class="decision-select" type="button" data-choice-button="medical-B" aria-pressed="false">B</button>
+            <div><h4>专科优先 · 西京＋交大一候补＋交大二兜底</h4><p>叔叔皮肤用西京确定号；阿姨眼科候补西京；交大一消化、神内候补成功后启用，失败则保留交大二确定号。省人民消化和交大二皮肤因既往效果不佳不作主选。</p></div>
+            <a href="https://uri.amap.com/marker?position=108.988276,34.270598&name=西京医院" target="_blank" rel="noopener">西京</a>
+          </div>
+          <div class="decision-status" data-choice-status="medical">当前选择：Plan A 确定性优先</div>
+        </article>
       </section>
 
       <section class="day-section" id="day-panel"></section>
@@ -1385,11 +1431,11 @@
           酒店
         </h3>
         <div class="hotel-card" id="hotel-card">
-          <h4 id="hotel-name"><span class="hotel-emoji">🏨</span> 西安钟鼓楼广场亚朵酒店</h4>
-          <p class="address" id="hotel-address">西安市西大街20号（钟楼地铁站J口步行约420米）</p>
-          <p class="why" id="hotel-why">连锁品牌、钟楼地铁2号线直达西安北站；步行可到非遗大剧院，打车覆盖曲江与南门购物。订两间房并备注高楼层、远离电梯和临街面、尽量同层。</p>
+          <h4 id="hotel-name"><span class="hotel-emoji">🏨</span> 金海御府酒店（西安明城墙玉祥门地铁站店）</h4>
+          <p class="address" id="hotel-address">西安市莲湖区大庆路1号（玉祥门旁）</p>
+          <p class="why" id="hotel-why">已确定入住；靠近玉祥门，前往第一医院、交大二附院等市内医院更方便。订两间房并备注高楼层、远离电梯和临街面、尽量同层。</p>
           <div class="links" id="hotel-links">
-            <a href="https://uri.amap.com/marker?position=108.944957,34.258921&name=西安钟鼓楼广场亚朵酒店">高德</a>
+            <a href="https://uri.amap.com/marker?position=108.922174,34.270608&name=金海御府酒店西安明城墙玉祥门地铁站店">高德</a>
           </div>
           <div id="hotel-commute"></div>
         </div>
@@ -1469,7 +1515,7 @@
     window.tripData = {
   "$schema": "travel-planner-v2.3",
   "amap_key": "",
-  "trip_name": "第一次见面 · 西安四晚舒适行 v005",
+  "trip_name": "第一次见面 · 西安四晚舒适行 v006",
   "date_range": "2026-08-07 至 2026-08-11",
   "n_days": "5",
   "city": "西安",
@@ -1495,23 +1541,23 @@
       "大唐芙蓉园只走夜景精华线",
       "不安排赳赳大秦与SKP"
     ],
-    "region_layout": "钟楼住店；周六曲江妆造与接风；周日临潼；周一西安博物院、小雁塔、易俗社与商场四选一",
+    "region_layout": "玉祥门住店；周六曲江妆造与接风宴二选一；周日临潼；周一旅游或医疗双方案",
     "source": "webfetch-degraded",
     "degraded": true,
     "pace_hints": "周六早市为可选项；周日不再叠加早起项目；周一全日室内为主。"
   },
   "hotel": {
-    "name": "西安钟鼓楼广场亚朵酒店",
-    "address": "西安市西大街20号（钟楼地铁站J口步行约420米）",
-    "lng": 108.944957,
-    "lat": 34.258921,
-    "amap_uri": "https://uri.amap.com/marker?position=108.944957,34.258921&name=西安钟鼓楼广场亚朵酒店",
-    "why": "连锁品牌、钟楼地铁2号线直达西安北站；步行可到非遗大剧院，打车覆盖曲江与南门购物。订两间房并备注高楼层、远离电梯和临街面、尽量同层。",
+    "name": "金海御府酒店（西安明城墙玉祥门地铁站店）",
+    "address": "西安市莲湖区大庆路1号（玉祥门旁）",
+    "lng": 108.922174,
+    "lat": 34.270608,
+    "amap_uri": "https://uri.amap.com/marker?position=108.922174,34.270608&name=金海御府酒店西安明城墙玉祥门地铁站店",
+    "why": "已确定入住；玉祥门位置对西安市第一医院、交大二附院等市内医院更友好。订两间房并备注高楼层、远离电梯和临街面、尽量同层。",
     "commute": [
-      "西安北站：打车基准约37分钟，早晚高峰另留20分钟",
-      "西安博物院：打车基准约15分钟",
-      "兵马俑：打车基准约48分钟",
-      "西安非遗大剧院钟楼店：步行约5分钟"
+      "西安市第一医院：高德基准约3.7公里/15分钟",
+      "交大二附院：高德基准约3.6公里/17分钟",
+      "西京医院：高德基准约7.5公里/22分钟",
+      "交大一附院：高德基准约7.7公里/28分钟"
     ],
     "booking_note": "2026-08-07入住、08-11退房，共4晚；叔叔单住1间，阿姨与女朋友住1间。"
   },
@@ -1526,8 +1572,8 @@
       "weather": "双源分歧：高德多云30/23℃；Open-Meteo雷暴风险84%",
       "weather_emoji": "天气待复核",
       "center": [
-        108.944957,
-        34.258921
+        108.922174,
+        34.270608
       ],
       "zoom": 11,
       "pois": [
@@ -1557,10 +1603,10 @@
         {
           "idx": 2,
           "time": "18:50",
-          "name": "西安钟鼓楼广场亚朵酒店",
+          "name": "金海御府酒店（玉祥门店）",
           "cat": "hotel",
-          "lng": 108.944957,
-          "lat": 34.258921,
+          "lng": 108.922174,
+          "lat": 34.270608,
           "duration_min": 60,
           "note": "先办理两间房入住、放行李；晚餐地点按叔叔阿姨安排叫车，饭后直接休息。",
           "why": "抵达日不再安排固定景点和正式接风。",
@@ -1584,7 +1630,7 @@
           "to_idx": 2,
           "mode": "driving",
           "duration_min": 41,
-          "description": "西安北站至酒店17.7公里，高德实时路径约41分钟；周五晚按55分钟准备。",
+          "description": "西安北站至金海御府；酒店锚点已切换，周五晚按55分钟总缓冲并在上车时用高德复核。",
           "distance_m": 17740,
           "source": "amap-mcp",
           "fare": {
@@ -1693,8 +1739,8 @@
           "time": "07:40",
           "name": "酒店早餐与休息",
           "cat": "hotel",
-          "lng": 108.944957,
-          "lat": 34.258921,
+          "lng": 108.922174,
+          "lat": 34.270608,
           "duration_min": 80,
           "note": "早市后补水、早餐和短休；叔叔不参加妆造，可继续休息后再到曲江会合。",
           "why": "用一段明确休息抵消早起。",
@@ -1859,7 +1905,7 @@
           "to_idx": 1,
           "mode": "driving",
           "duration_min": 8,
-          "description": "酒店至小南门1.9公里，高德约8分钟。",
+          "description": "金海御府至小南门；清晨按15分钟叫车缓冲，出发时用高德复核。",
           "distance_m": 1927,
           "source": "amap-mcp",
           "fare": {
@@ -1880,7 +1926,7 @@
           "to_idx": 2,
           "mode": "driving",
           "duration_min": 11,
-          "description": "小南门返酒店2.3公里，高德约11分钟。",
+          "description": "小南门返金海御府；预留15分钟叫车缓冲。",
           "distance_m": 2283,
           "source": "amap-mcp",
           "fare": {
@@ -1901,7 +1947,7 @@
           "to_idx": 3,
           "mode": "driving",
           "duration_min": 25,
-          "description": "酒店至慈恩东路妆造点7.5公里，高德约25分钟。",
+          "description": "金海御府至慈恩东路妆造点；上午跨城墙南行，按40分钟门到门准备。",
           "distance_m": 7476,
           "source": "amap-mcp",
           "fare": {
@@ -2006,7 +2052,7 @@
           "to_idx": 0,
           "mode": "driving",
           "duration_min": 34,
-          "description": "大唐芙蓉园返酒店11.5公里，高德约34分钟。",
+          "description": "大唐芙蓉园返金海御府；夜间按45分钟门到门准备。",
           "distance_m": 11528,
           "source": "amap-mcp",
           "fare": {
@@ -2063,7 +2109,7 @@
           }
         }
       },
-      "weather_decision": "**Plan A｜无持续降雨：** 早市可选，妆造、大慈恩寺、茶歇、铭家接风及大唐芙蓉园夜景按原时刻执行。短时小雨只取消早市，芙蓉园缩为紫云楼与湖边精华线。\n\n**Plan B｜雷电预警或19:00后降水概率≥60%：** 取消早市；妆造、茶歇和铭家接风照常。晚饭后不进芙蓉园，改到西安万象城生命之树室内区域散步、拍照和咖啡休息，21:15前返酒店。芙蓉园票在前一晚先核对退改规则。"
+      "weather_decision": "**Plan A｜无持续降雨：** 早市可选，妆造、大慈恩寺、茶歇、接风宴二选一及大唐芙蓉园夜景按原时刻执行。短时小雨只取消早市，芙蓉园缩为紫云楼与湖边精华线。\n\n**Plan B｜雷电预警或19:00后降水概率≥60%：** 取消早市；妆造、茶歇和接风宴照常。晚饭后不进芙蓉园，改到西安万象城室内区域休息，21:15前返酒店。"
     },
     {
       "day": 3,
@@ -2193,7 +2239,7 @@
           "to_idx": 1,
           "mode": "driving",
           "duration_min": 49,
-          "description": "酒店至兵马俑41.6公里，高德基准约48分钟；周日早上按70分钟预留。",
+          "description": "金海御府至兵马俑；周日早上仍按70分钟以上预留，出发时用高德复核。",
           "distance_m": 41641,
           "source": "amap-mcp",
           "fare": {
@@ -2277,7 +2323,7 @@
           "to_idx": 0,
           "mode": "driving",
           "duration_min": 60,
-          "description": "华清宫返钟楼39.9公里，高德基准约60分钟；散场拥堵按80分钟准备。",
+          "description": "华清宫返金海御府；散场拥堵按80分钟以上准备。",
           "distance_m": 39921,
           "source": "amap-mcp",
           "fare": {
@@ -2490,7 +2536,7 @@
           "to_idx": 1,
           "mode": "driving",
           "duration_min": 21,
-          "description": "酒店至西安博物院3.8公里，高德驾车基准约15分钟。",
+          "description": "金海御府至西安博物院；按25分钟门到门准备，出发时用高德复核。",
           "distance_m": 3786,
           "source": "amap-mcp",
           "fare": {
@@ -2553,7 +2599,7 @@
           "to_idx": 0,
           "mode": "driving",
           "duration_min": 10,
-          "description": "默认A：开元商城钟楼店返酒店1.8公里，高德约9分钟；选B/C/D时按四选一模块路线执行。",
+          "description": "默认A：开元商城钟楼店返金海御府；选B/C/D时按四选一模块并现场调用高德。",
           "distance_m": 1779,
           "source": "amap-mcp",
           "fare": {
@@ -2608,7 +2654,7 @@
           }
         }
       },
-      "weather_decision": "**当前执行：正常方案。** Open-Meteo 8月5日更新结果为晴、30.0/22.2℃、最高降水概率6%、预计降水0毫米；当天主体为室内活动，因此不设置天气 Plan B。**预约兜底不是天气 Plan B：** 若西安博物院仍无名额，上午改为碑林博物馆外围、书院门与城墙根慢逛，不购买第三方捆绑票，12:30前结束后照常去易俗社。购物采用偏好四选一：默认A开元；重环境选B万象城；明确扫货选C砂之船；偏品质女装选D中大高新。"
+      "weather_decision": "**当前旅游方案：** 天气允许时执行西安博物院、易俗社与购物。**医疗优先规则：** 任一核心号源落在8月10日，该日不赶景点，医院方案覆盖全天；Plan A在第一医院集中完成，Plan B按西京、交大一候补和交大二兜底执行。购物只在全部就诊与检查提前结束时保留。"
     },
     {
       "day": 5,
@@ -2620,8 +2666,8 @@
       "weather": "Open-Meteo晴31.3/22.5℃，降水概率16%；高德待进入预报窗口",
       "weather_emoji": "返程",
       "center": [
-        108.944957,
-        34.258921
+        108.922174,
+        34.270608
       ],
       "zoom": 11,
       "pois": [
@@ -2630,8 +2676,8 @@
           "time": "09:30",
           "name": "酒店自然醒与退房",
           "cat": "hotel",
-          "lng": 108.944957,
-          "lat": 34.258921,
+          "lng": 108.922174,
+          "lat": 34.270608,
           "duration_min": 60,
           "note": "按最终车次倒推；建议购买11:30以后车次。",
           "why": "末日不加景点，保证父母舒服。",
@@ -2678,7 +2724,7 @@
           "to_idx": 2,
           "mode": "driving",
           "duration_min": 37,
-          "description": "酒店至西安北站19.3公里，高德基准约37分钟；工作日早高峰按60分钟准备。",
+          "description": "金海御府至西安北站；工作日早高峰按60分钟门到门准备并倒推离店。",
           "distance_m": 19262,
           "source": "amap-mcp",
           "fare": {
@@ -2725,13 +2771,13 @@
       "reason": "高德同时出现周一闭馆与暑期场次信息，开放口径有歧义；改选每日开放的秦风源非遗剧场。"
     },
     {
-      "item": "晓长安北二环接风宴",
-      "reason": "第一晚由叔叔阿姨做东，正式接风挪到第二晚；曲江铭家更从容且紧邻芙蓉园。"
+      "item": "省人民医院消化科与交大二附院皮肤科作为主选",
+      "reason": "两条路径既往效果不佳；006仅在无其他确定号时保留为兜底，不重复作为首选。"
     }
   ],
   "prebook": [
     {
-      "item": "西安钟鼓楼广场亚朵酒店两间房",
+      "item": "金海御府酒店（玉祥门店）两间房",
       "deadline": "立即",
       "url": null,
       "note": "连续4晚，安静房、同层、含早优先",
@@ -2745,10 +2791,16 @@
       "note": "女朋友确认最终店名、服装级别、是否含摄影；路线暂以慈恩东路轩影阁区域为锚点"
     },
     {
-      "item": "铭家家宴曲江店安静包间",
+      "item": "接风宴二选一：铭家曲江店 / 晓长安曲江店",
       "deadline": "2026-08-06前",
       "url": null,
-      "note": "8月8日17:00，说明第一次正式见面；确认包间最低消费和不辣菜（非重预约，时间可协商）"
+      "note": "8月8日17:00；Plan A铭家包间更稳，Plan B晓长安地域感更强。两家先询包间和退改，最终只保留一家。"
+    },
+    {
+      "item": "医院确定号与候补号",
+      "deadline": "立即保留确定号，候补成功后再退兜底号",
+      "url": null,
+      "note": "Plan A：第一医院四科确定号；Plan B：西京皮肤确定号＋西京眼科候补＋交大一消化/神内候补，失败用交大二确定号。叔叔头痛与阿姨失眠需分别挂神经内科号。"
     },
     {
       "item": "西安博物院官方预约",
@@ -4171,7 +4223,7 @@
           `<p class="note" style="margin-top:8px">📋 ${mdLite(d.weather_decision)}</p>` : '';
 
         const mallOptions = Array.isArray(d.mall_options) ? d.mall_options : [];
-        const mallChoiceKey = `travel-mall-choice-v005-day-${d.day}`;
+        const mallChoiceKey = `travel-mall-choice-v006-day-${d.day}`;
         const storedMallChoice = localStorage.getItem(mallChoiceKey);
         const selectedMallCode = mallOptions.some(option => option.code === storedMallChoice)
           ? storedMallChoice
@@ -4874,6 +4926,38 @@
       const versionSelect = document.getElementById('version-select');
       versionSelect?.addEventListener('change', () => {
         window.location.href = versionSelect.value;
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const labels = {
+        'dinner-A': 'Plan A 铭家曲江店',
+        'dinner-B': 'Plan B 晓长安曲江店',
+        'medical-A': 'Plan A 确定性优先',
+        'medical-B': 'Plan B 专科优先'
+      };
+      document.querySelectorAll('[data-choice-card]').forEach(card => {
+        const group = card.dataset.choiceCard;
+        const key = `travel-v006-choice-${group}`;
+        const options = [...card.querySelectorAll('[data-choice-option]')];
+        const saved = localStorage.getItem(key);
+        const initial = options.some(row => row.dataset.choiceOption === saved)
+          ? saved : `${group}-A`;
+        const apply = value => {
+          options.forEach(row => {
+            const active = row.dataset.choiceOption === value;
+            row.classList.toggle('is-selected', active);
+            row.querySelector('[data-choice-button]')?.setAttribute('aria-pressed', String(active));
+          });
+          const status = card.querySelector('[data-choice-status]');
+          if (status) status.textContent = `当前选择：${labels[value] || value}`;
+          localStorage.setItem(key, value);
+        };
+        apply(initial);
+        card.querySelectorAll('[data-choice-button]').forEach(button => {
+          button.addEventListener('click', () => apply(button.dataset.choiceButton));
+        });
       });
     })();
   </script>
