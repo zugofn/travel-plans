@@ -1320,7 +1320,7 @@
     <header class="hero">
       <h1>第一次见面 · 西安四晚舒适行 v006</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；接风宴与专项就医均提供可切换双方案，号源落定后再覆盖对应旅游时段。</p>
+      <p class="summary">入住金海御府；接风宴提供双方案，8月10日固定为父母专项就医日，并按最终号源选择集中就诊或专科分流。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1371,7 +1371,7 @@
         </article>
 
         <article class="decision-card" data-choice-card="medical">
-          <h3>父母专项就医 · 号源日期未定</h3>
+          <h3>8月10日父母专项就医 · 二选一</h3>
           <div class="decision-option is-selected" data-choice-option="medical-A">
             <button class="decision-select" type="button" data-choice-button="medical-A" aria-pressed="true">A</button>
             <div><h4>确定性优先 · 西安市第一医院一院完成</h4><p>皮肤、眼科、消化、神内均有确定号，酒店出发高德基准约3.7公里/15分钟。阿姨同一眼病曾在此就诊，眼科仅作兜底，不把重复就诊包装成专科升级。</p></div>
@@ -1379,7 +1379,7 @@
           </div>
           <div class="decision-option" data-choice-option="medical-B">
             <button class="decision-select" type="button" data-choice-button="medical-B" aria-pressed="false">B</button>
-            <div><h4>专科优先 · 西京＋交大一候补＋交大二兜底</h4><p>叔叔皮肤用西京确定号；阿姨眼科候补西京；交大一消化、神内候补成功后启用，失败则保留交大二确定号。省人民消化和交大二皮肤因既往效果不佳不作主选。</p></div>
+            <div><h4>专科优先 · 西京＋交大一候补＋交大二兜底</h4><p>8月10日按最终号源分流：叔叔皮肤用西京确定号；阿姨眼科候补西京；交大一消化、神内候补成功后启用，失败则保留交大二确定号。省人民消化和交大二皮肤因既往效果不佳不作主选。</p></div>
             <a href="https://uri.amap.com/marker?position=108.988276,34.270598&name=西京医院" target="_blank" rel="noopener">西京</a>
           </div>
           <div class="decision-status" data-choice-status="medical">当前选择：Plan A 确定性优先</div>
@@ -1530,7 +1530,7 @@
     "must_visit": [
       "兵马俑必须配讲解",
       "长恨歌只保留一台大型实景演出",
-      "西安博物院只走官方预约，预约失败则直接走无票备选",
+      "8月10日固定安排父母专项就医，不再与旅游项目混排",
       "叔叔安排秦腔与茶",
       "阿姨安排妆造和体面购物"
     ],
@@ -2798,16 +2798,10 @@
     },
     {
       "item": "医院确定号与候补号",
+      "day": 4,
       "deadline": "立即保留确定号，候补成功后再退兜底号",
       "url": null,
-      "note": "Plan A：第一医院四科确定号；Plan B：西京皮肤确定号＋西京眼科候补＋交大一消化/神内候补，失败用交大二确定号。叔叔头痛与阿姨失眠需分别挂神经内科号。"
-    },
-    {
-      "item": "西安博物院官方预约",
-      "day": 4,
-      "deadline": "立即预约8月10日上午",
-      "url": null,
-      "note": "通过“西安博物院”官方微信公众号预约；若仍无票，不买第三方讲解捆绑票，改走碑林博物馆外街区＋书院门无票方案"
+      "note": "8月10日全天就医。Plan A：第一医院四科确定号；Plan B：西京皮肤确定号＋西京眼科候补＋交大一消化/神内候补，失败用交大二确定号。叔叔头痛与阿姨失眠需分别挂神经内科号。"
     },
     {
       "item": "临潼历史大日票务组合",
@@ -2977,7 +2971,7 @@
       "tickets": {
         "min": 3320,
         "max": 4400,
-        "note": "含大慈恩寺、芙蓉园、兵马俑、华清宫、长恨歌、秦风源；西安博物院免费预约"
+        "note": "含大慈恩寺、芙蓉园、兵马俑、华清宫、长恨歌、秦风源；8月10日医疗费用以医院结算为准，未计入旅游预算"
       },
       "transport_local": {
         "min": 0,
@@ -3082,6 +3076,85 @@
     }
   }
 };
+
+// v006 medical-day correction: August 10 is reserved for appointments, not tourism.
+(() => {
+  const day4 = window.tripData.days.find(day => day.date === '2026-08-10');
+  if (!day4) return;
+  Object.assign(day4, {
+    region: '玉祥门 / 就诊医院',
+    region_flex: true,
+    theme: '父母专项就医日 · Plan A / Plan B',
+    weather: '全天以就诊、检查和休息为主；天气不改变医疗优先级',
+    weather_emoji: '医',
+    center: [108.944962, 34.254547],
+    zoom: 12,
+    medical_day_fixed: true,
+    pois: [
+      {
+        idx: 1,
+        time: '07:30',
+        name: '金海御府 · 早餐与资料确认',
+        cat: 'hotel',
+        lng: 108.922174,
+        lat: 34.270608,
+        duration_min: 45,
+        note: '带身份证、医保凭证、既往病历、检查报告和当前用药清单；按最终号源决定集中就诊或分院。',
+        why: '提前整理每人的症状时间线，减少门诊重复叙述和遗漏。'
+      },
+      {
+        idx: 2,
+        time: '08:30',
+        name: '医院就诊 · 按已选 Plan 执行',
+        cat: 'culture',
+        lng: 108.944962,
+        lat: 34.254547,
+        duration_min: 420,
+        requires_booking: true,
+        note: 'Plan A默认锚点为西安市第一医院；Plan B按西京、交大一候补结果和交大二确定号分流。不要为了凑齐医院而跨院硬赶，检查与复诊优先。',
+        why: '8月10日已明确为专项就医日，给候诊、检查、缴费和院内移动留足时间。'
+      },
+      {
+        idx: 3,
+        time: '16:30',
+        name: '整理医嘱 · 返回酒店休息',
+        cat: 'hotel',
+        lng: 108.922174,
+        lat: 34.270608,
+        duration_min: 120,
+        note: '核对处方、检查结果、复诊时间和用药禁忌；如仍在检查或候诊，取消晚间安排。',
+        why: '不把医疗日当普通景点日，避免长辈看诊后继续赶场。'
+      }
+    ],
+    mall_options: [],
+    transports: [
+      {
+        from_idx: 1,
+        to_idx: 2,
+        mode: 'taxi',
+        duration_min: 15,
+        distance_m: 3709,
+        description: 'Plan A：金海御府至西安市第一医院，高德驾车基准约3.7公里/15分钟；Plan B须按最终号源分别叫车。',
+        source: 'amap-mcp'
+      }
+    ],
+    meals: {
+      lunch: {
+        main: {
+          name: '院内或医院附近清淡简餐',
+          why: '不跨区找餐厅；按检查是否需空腹，由现场医嘱决定用餐时间。'
+        }
+      },
+      dinner: {
+        main: {
+          name: '返回酒店后就近清淡晚餐',
+          why: '就诊结束时间不可控，当晚不设需要预约或长距离通勤的餐厅。'
+        }
+      }
+    },
+    weather_decision: '**固定医疗日：** 8月10日不因晴天恢复西安博物院、易俗社或商场。Plan A在西安市第一医院集中完成；Plan B按当天最终号源分流，以已确认的诊次和检查为主，不跨院硬赶。若16:00前全部结束，也只返回酒店休息或就近吃饭。'
+  });
+})();
   </script>
 
   <!-- ===== 渲染逻辑 ===== -->
