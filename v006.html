@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v007 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v006 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1269,12 +1269,6 @@
       .version-nav select { flex: 0 1 168px; min-width: 0; max-width: 168px; }
       .day-card { padding: var(--sp-4) var(--sp-4) var(--sp-3); }
       .day-card > header h3 { font-size: var(--fs-lg); }
-      .day-card > header .weather {
-        max-width: 100%;
-        white-space: normal;
-        overflow-wrap: anywhere;
-        border-radius: 6px;
-      }
       ol.timeline li.time-block { padding: 4px 0 var(--sp-3) var(--sp-4); }
       .place h4 { font-size: 15px; }
       .tabs { top: var(--sp-2); }
@@ -1320,15 +1314,14 @@
         <option value="archive.html?v=003">003 · 天气方案</option>
         <option value="archive.html?v=004">004 · 商场四选一</option>
         <option value="archive.html?v=005">005 · 西安博物院替代方案</option>
-        <option value="v006.html">006 · 酒店、晚宴与医疗双方案</option>
-        <option value="index.html" selected>007 · 舒适动线定稿（当前）</option>
+        <option value="index.html" selected>006 · 酒店、晚宴与医疗双方案（当前）</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v007</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v006</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；首晚钟楼短逛、8月8日晓长安正式宴请、8月9日午后临潼、8月10日上午就医后弹性安排。</p>
+      <p class="summary">入住西安广成大酒店；每日只显示当天相关方案，8月10日固定为父母专项就医日。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1364,18 +1357,18 @@
 
       <section class="decision-hub" id="decision-hub" aria-label="当前日期方案选择" hidden>
         <article class="decision-card" data-choice-card="dinner" data-choice-day="2" hidden>
-          <h3>8月8日正式接风宴 · 已确定</h3>
-          <div class="decision-option" data-choice-option="dinner-A" hidden>
+          <h3>8月8日正式接风宴 · 二选一</h3>
+          <div class="decision-option is-selected" data-choice-option="dinner-A">
             <button class="decision-select" type="button" data-choice-button="dinner-A" aria-pressed="true">A</button>
             <div><h4>铭家家宴·海鲜青岛菜·院子餐厅（曲江店）</h4><p>默认方案。包间接待更稳、口味可照顾叔叔不重辣，且与十三茶舍和芙蓉园衔接最顺。</p></div>
             <a href="https://uri.amap.com/marker?position=108.975841,34.207190&name=铭家家宴曲江店" target="_blank" rel="noopener">高德</a>
           </div>
-          <div class="decision-option is-selected" data-choice-option="dinner-B">
-            <button class="decision-select" type="button" data-choice-button="dinner-B" aria-pressed="true">✓</button>
-            <div><h4>晓长安·新陕菜（曲江店）</h4><p>正式执行。高德当前评分4.7、人均约300元、17:00-21:00营业；独立院落比商场店更有接待感。非遗大剧院到店约7.8公里/21分钟，饭后到芙蓉园约6.9公里/25分钟。</p></div>
+          <div class="decision-option" data-choice-option="dinner-B">
+            <button class="decision-select" type="button" data-choice-button="dinner-B" aria-pressed="false">B</button>
+            <div><h4>晓长安·新陕菜（曲江店）</h4><p>陕西地域感更强；高德当前显示人均约300元、17:00-21:00营业。距离芙蓉园更远，选择后需把晚餐提前并全程打车。</p></div>
             <a href="https://uri.amap.com/marker?position=109.022916,34.195004&name=晓长安新陕菜曲江店" target="_blank" rel="noopener">高德</a>
           </div>
-          <div class="decision-status" data-choice-status="dinner">当前选择：晓长安曲江店</div>
+          <div class="decision-status" data-choice-status="dinner">当前选择：Plan A 铭家曲江店</div>
         </article>
 
         <article class="decision-card" data-choice-card="medical" data-choice-day="4" hidden>
@@ -3260,235 +3253,6 @@
 })();
   </script>
 
-  <script>
-// v007: confirmed hotel and comfort-first itinerary refresh.
-(() => {
-  const D = window.tripData;
-  if (!D) return;
-
-  const hotel = {
-    name: '金海御府酒店（西安明城墙玉祥门地铁站店）',
-    short_name: '金海御府',
-    address: '西安市莲湖区大庆路1号',
-    lng: 108.922174,
-    lat: 34.270608,
-    amap_uri: 'https://uri.amap.com/marker?position=108.922174,34.270608&name=金海御府酒店西安明城墙玉祥门地铁站店',
-    why: '已确定入住。高德POI核验地址为大庆路1号；离玉祥门、城墙西北侧和钟楼较近，四晚统一以此为叫车锚点。订两间房并备注同层、安静、远离电梯和临街面。',
-    commute: [
-      '金海御府→钟楼：高德驾车约3.8公里/18分钟，适合抵达日晚饭后的短逛。',
-      '金海御府→长安十二时辰：高德驾车约10.4公里/33分钟；抵达日不推荐赶最晚21:00入场。',
-      '金海御府→开元商城钟楼店：高德驾车约4.1公里/20分钟。',
-      '8月10日就医仍按最终医院与号源叫车；看诊结束时间决定是否加入戏曲和购物。'
-    ],
-    booking_note: '2026-08-07入住、08-11退房，共4晚；叔叔单住1间，阿姨与女朋友住1间。'
-  };
-  D.hotel = hotel;
-  D.trip_name = '第一次见面 · 西安四晚舒适行 v007';
-  D.trip_center = [hotel.lng, hotel.lat];
-  D.summary = '入住金海御府；首晚钟楼短逛、8月8日晓长安正式宴请、8月9日午后临潼、8月10日上午就医后弹性安排。';
-  D.weather_plan = '**数据刷新时间：2026-08-07（北京时间）。**\n\n高德天气 MCP（西安市 610100）：8月7日多云/夜间小雨 30/23℃；8月8日多云 30/24℃；8月9日小雨 29/22℃；8月10日晴 28/22℃。\n\n**实际分流：** 8月7日只有无明显降雨且21:00前吃完才去钟楼；8月8日主线照常、临时雷雨只取消芙蓉园；8月9日因小雨启用雨具方案并盯《长恨歌》官方通知；8月10日晴天不生成天气Plan B，而按看诊结束时间分流。出发前2小时再次用高德复核。';
-  if (D.xhs_destination_brief) {
-    D.xhs_destination_brief.region_layout = '金海御府住店；周六曲江妆造、非遗演出、晓长安与芙蓉园；周日午后临潼；周一上午专项就医后弹性购物';
-  }
-
-  const replaceHotel = value => typeof value === 'string'
-    ? value.replace(/西安广成大酒店|广成大酒店/g, '金海御府')
-    : value;
-  (D.days || []).forEach(day => {
-    (day.pois || []).forEach(poi => {
-      if (poi.cat === 'hotel') {
-        poi.name = replaceHotel(poi.name);
-        poi.lng = hotel.lng;
-        poi.lat = hotel.lat;
-      }
-      ['note', 'why', 'description'].forEach(key => {
-        if (poi[key]) poi[key] = replaceHotel(poi[key]);
-      });
-    });
-    (day.transports || []).forEach(t => {
-      if (t.description) t.description = replaceHotel(t.description);
-    });
-  });
-
-  const day1 = D.days.find(day => day.day === 1);
-  Object.assign(day1, {
-    region: '西安北站 / 金海御府 / 钟楼',
-    theme: '接站、父母做东与可选钟楼夜景',
-    pois: [
-      day1.pois[0],
-      Object.assign(day1.pois[1], {
-        time: '18:50',
-        name: '金海御府 · 入住与父母做东晚餐',
-        lng: hotel.lng,
-        lat: hotel.lat,
-        duration_min: 120,
-        note: '先入住放行李，晚餐完全按叔叔阿姨安排。若吃完已超过21:00、下雨或长辈疲惫，直接回酒店，不为完成项目硬逛。'
-      }),
-      {
-        idx: 3,
-        time: '21:00',
-        name: '钟楼外景短逛（有余力才去）',
-        cat: 'scenery',
-        type: 'outdoor',
-        tags: ['outdoor', '观景'],
-        lng: 108.947030,
-        lat: 34.259430,
-        duration_min: 50,
-        weather_sensitive: true,
-        indoor_backup: '取消短逛，直接回金海御府休息',
-        note: '只看钟楼亮灯、钟楼广场和回民街入口，不登楼、不走完整回民街。金海御府出发高德约3.8公里/18分钟。',
-        why: '比长安十二时辰更灵活、免费且随时可撤，适合经历高铁和晚饭后的第一晚。'
-      }
-    ],
-    transports: [
-      day1.transports[0],
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 18, distance_m: 3766, description: '若晚饭后已回酒店且仍有体力，再叫车到钟楼；高德当前基准约3.8公里/18分钟。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 0, mode: 'driving', duration_min: 20, distance_m: 3800, description: '22:00前结束并返回金海御府；以现场高德叫车页为准。', source: 'amap-mcp' }
-    ],
-    weather_decision: '**仅在无明显降雨且21:00前吃完时加入钟楼。** 长安十二时辰10:00-22:00、最晚21:00入场，从酒店约33分钟，抵达日不推荐；戏剧类演出也不用于第一晚，以免列车或晚饭延误后赶场。'
-  });
-
-  const day2 = D.days.find(day => day.day === 2);
-  const d2 = day2.pois;
-  Object.assign(day2, {
-    theme: '可选早市、妆造、非遗小剧场、晓长安与盛唐夜景',
-    pois: [
-      ...d2.slice(0, 5),
-      {
-        idx: 6,
-        time: '16:00',
-        name: '西安非遗大剧院（大雁塔店）',
-        cat: 'show',
-        lng: 108.965516,
-        lat: 34.220737,
-        duration_min: 60,
-        requires_booking: true,
-        note: '优先预订16:00前后约60分钟的综合非遗场，内容含秦腔、皮影、变脸等；具体场次和票价以当天官方售票页为准。十三茶舍步行约565米/8分钟。',
-        why: '解决午餐、喝茶、晚餐之间内容偏少的问题，也同时照顾叔叔喜欢戏剧和阿姨喜欢热闹场面的偏好。'
-      },
-      Object.assign(d2[5], {
-        idx: 7,
-        time: '17:40',
-        name: '晓长安·新陕菜（曲江店） · 正式接风宴',
-        lng: 109.022916,
-        lat: 34.195004,
-        duration_min: 100,
-        note: '已确定由你正式宴请。高德当前评分4.7、人均约300元、17:00-21:00营业；订安静包间，提前说明一位不重辣。独立院落的接待感优于商场店。',
-        why: '第一次正式宴请更需要场景和地域感；接受约20-25分钟车程换取完整体验。'
-      }),
-      Object.assign(d2[6], { idx: 8, time: '19:50' })
-    ],
-    transports: [
-      ...day2.transports.slice(0, 5),
-      { from_idx: 5, to_idx: 6, mode: 'walking', duration_min: 8, distance_m: 565, description: '十三茶舍至西安非遗大剧院大雁塔店，高德步行约565米/8分钟。', source: 'amap-mcp' },
-      { from_idx: 6, to_idx: 7, mode: 'driving', duration_min: 22, distance_m: 7767, description: '非遗大剧院至晓长安曲江店，高德当前约7.8公里/21分钟，预留30分钟门到门。', source: 'amap-mcp' },
-      { from_idx: 7, to_idx: 8, mode: 'driving', duration_min: 26, distance_m: 6912, description: '晓长安曲江店至大唐芙蓉园，高德当前约6.9公里/25分钟。', source: 'amap-mcp' },
-      Object.assign(day2.transports[7], { from_idx: 8, to_idx: 0, duration_min: 38, distance_m: 15797, description: '大唐芙蓉园返金海御府，高德当前约15.8公里/38分钟，夜间预留50分钟门到门。' })
-    ],
-    weather_decision: '**当前天气：多云，30/24℃，不设雨天Plan B。** 早市仍是可选项；如起不来就取消，不影响主线。16:00非遗演出补足活动量，晓长安和芙蓉园顺延。若晚间临时雷雨，只取消芙蓉园，室内项目与晚宴不变。'
-  });
-  day2.meals.dinner.main = {
-    name: '晓长安·新陕菜（曲江店）',
-    why: '已确定作为第二晚正式接风宴；独立院落、陕西地域感和接待氛围优先。',
-    lng: 109.022916,
-    lat: 34.195004,
-    price: { min: 300, max: 300, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 1200, total_max: 1200, label: '正式接风宴参考', source: 'amap-mcp', source_ref: '高德POI当前人均约300元' }
-  };
-
-  const day3 = D.days.find(day => day.day === 3);
-  Object.assign(day3, {
-    region: '钟楼 / 临潼',
-    theme: '上午轻逛、午后兵马俑与长恨歌',
-    weather: '高德：小雨，29/22℃；上午室内、午后按雨具方案执行',
-    weather_emoji: '小雨',
-    pois: [
-      { idx: 1, time: '10:00', name: '开元商城钟楼店 · 轻逛与礼物踩点', cat: 'shopping', lng: 108.948139, lat: 34.258584, duration_min: 70, note: '只轻逛、不要求当天买成；与第四天四选一购物不同，这里是短时踩点。高德酒店出发约4.1公里/20分钟。', why: '周日预报小雨，室内活动最稳，也符合“不早去临潼”的要求。' },
-      { idx: 2, time: '11:20', name: '钟楼附近清淡午餐', cat: 'food', lng: 108.947030, lat: 34.259430, duration_min: 70, note: '12:30前结束，餐后立即叫车。不要选需要排长队的网红店。', why: '把午饭放在城内，临潼只承担核心参观和晚间演出。' },
-      { idx: 3, time: '13:45', name: '秦始皇帝陵博物院（兵马俑）', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 200, requires_booking: true, note: '按1号坑、3号坑、2号坑顺序，购买官方或正规讲解；丽山园取消，不硬走全套。', why: '午后到达后仍保留约3小时核心参观。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '门票', source: 'official-site', source_ref: '秦始皇帝陵博物院官方票价' } },
-      { idx: 4, time: '17:45', name: '华清宫区域 · 晚餐与候场', cat: 'food', lng: 109.215759, lat: 34.356728, duration_min: 120, note: '本版不再承诺华清宫白天深度参观；吃饭、取票、休息，19:40前完成检票。', why: '午后才到临潼时，兵马俑和华清宫深度游无法同时保证，主动取舍更舒服。' },
-      { idx: 5, time: '20:10', name: '《长恨歌》第一场（推荐保留）', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 70, weather_sensitive: true, indoor_backup: '如官方因极端天气取消，按购票平台规则处理并直接返城', note: '第一场散场后预约车辆返城。第二场用户平台报价四人省300元，但约21:35开演、22:38散场，已赶不上地铁，次日上午还有医院预约，本版不建议切换。', why: '省下75元/人，不值得用约78分钟更晚散场和医院前一晚的睡眠交换。', price: { min: 379, max: 379, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 1516, total_max: 1516, label: '中区第一场参考', source: 'official-site', source_ref: '长恨歌官方预订页2026票价' } }
-    ],
-    transports: [
-      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 20, distance_m: 4077, description: '金海御府至开元商城钟楼店，高德当前约4.1公里/20分钟。', source: 'amap-mcp' },
-      { from_idx: 1, to_idx: 2, mode: 'walking', duration_min: 8, distance_m: 600, description: '开元与钟楼午餐区步行衔接，按实际餐厅调整。', source: 'computed' },
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 62, distance_m: 41659, description: '钟楼至兵马俑，高德当前约41.7公里/62分钟；12:30叫车，预留75分钟门到门。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 30, distance_m: 13766, description: '兵马俑至华清宫区域，高德基准约13.8公里/30分钟。', source: 'amap-mcp' },
-      { from_idx: 4, to_idx: 5, mode: 'walking', duration_min: 10, distance_m: 500, description: '晚餐后步行到演出检票区，现场按指引进场。', source: 'computed' },
-      { from_idx: 5, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '第一场散场返金海御府，基础车程约60分钟，按80分钟以上准备并提前约车。', source: 'amap-mcp' }
-    ],
-    meals: {
-      lunch: { main: { name: '钟楼附近清淡午餐', why: '12:30前吃完再出发临潼。' } },
-      dinner: { main: { name: '华清宫附近提前晚餐', why: '18:30前吃完，为第一场取票、休息和检票留余量。' } }
-    },
-    weather_decision: '**8月9日高德预报小雨，确有天气Plan B。** 上午开元本身在室内；兵马俑核心坑区可执行，备雨衣和防滑鞋。若17:00后仍持续中到大雨，只取消非必要室外停留，是否演出以《长恨歌》官方通知为准。第二场并非天气Plan B，也不因便宜300元默认切换。'
-  });
-
-  const day4 = D.days.find(day => day.day === 4);
-  const malls = [
-    { code: 'A', name: '开元商城钟楼店', tag: '最稳妥 · 默认', lng: 108.948139, lat: 34.258584, hours: '周一10:00-22:00', route: '秦风源附近短途抵达；返酒店约4公里', fit: '服装、鞋履和美妆容易真正买到，路线最轻。', caution: '若第三天已经看中商品，今天直接完成购买。' },
-    { code: 'B', name: '西安万象城（生命之树）', tag: '环境体验', lng: 108.949454, lat: 34.195779, hours: '周一10:00-22:00', route: '从钟楼区域向南约9公里', fit: '环境、拍照和热闹氛围最好。', caution: '路程更长、价位偏高。' },
-    { code: 'C', name: '砂之船（西安）奥莱', tag: '折扣专项', lng: 109.045721, lat: 34.344414, hours: '周一10:00-22:00', route: '跨城通勤约19公里', fit: '明确要找折扣女装、鞋包或运动品牌时选择。', caution: '只有12:30前结束看诊才考虑，否则太赶。' },
-    { code: 'D', name: '中大国际商业中心（高新店）', tag: '品质女装', lng: 108.897231, lat: 34.222482, hours: '周一10:00-22:00', route: '从钟楼区域向西南约9公里', fit: '品质女装、鞋包和安静环境更合适。', caution: '需要专程前往，整体价位较高。' }
-  ];
-  Object.assign(day4, {
-    region: '就诊医院 / 钟楼 / 商场四选一',
-    theme: '上午就医，按结束时间选择戏曲与购物',
-    weather: '高德：晴，28/22℃；天气不构成备选触发条件',
-    weather_emoji: '晴',
-    pois: [
-      Object.assign(day4.pois[0], { time: '07:30', name: '金海御府 · 早餐与资料确认', lng: hotel.lng, lat: hotel.lat }),
-      Object.assign(day4.pois[1], { time: '08:30', duration_min: 210, note: '按已预约的上午诊次执行Plan A或Plan B；检查、缴费和医嘱优先，结束时间不可控。' }),
-      { idx: 3, time: '14:15', name: '秦风源非遗剧场（条件加入）', cat: 'show', lng: 108.949055, lat: 34.261008, duration_min: 75, note: '仅在13:30前完成看诊并确认当日场次时加入。高德显示每日10:00-20:30、评分4.6、人均约51元；电话或售票页确认具体开演时间。', why: '用小剧场秦腔/皮影补足叔叔的戏剧偏好，不与长恨歌的大型实景重复。', price: { min: 51, max: 51, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 204, total_max: 204, label: '非遗小剧场参考', source: 'amap-mcp', source_ref: '高德POI当前人均约51元' } },
-      { idx: 4, time: '16:15', name: '商场四选一', cat: 'shopping', lng: 108.948139, lat: 34.258584, duration_min: 180, note: 'A开元钟楼、B西安万象城、C砂之船奥莱、D中大国际高新，现场只选一家。看诊晚于14:30则跳过戏曲，直接吃饭后购物。', why: '购物是第四天下午的主保留项目；医疗延误时优先级高于追加景点。' }
-    ],
-    mall_options: malls,
-    transports: [
-      Object.assign(day4.transports[0], { from_idx: 1, to_idx: 2, description: '从金海御府到最终预约医院；Plan A西安市第一医院高德既有基准约3.7公里/15分钟，Plan B按实际号源叫车。' }),
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 18, distance_m: 3440, description: '以西安市第一医院为示例至秦风源，高德当前约3.4公里/18分钟；其他医院需现场复核。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 10, distance_m: 1500, description: '默认A开元钟楼为短途；选择B/C/D时按页面四选一动线叫车。', source: 'amap-mcp' },
-      { from_idx: 4, to_idx: 0, mode: 'driving', duration_min: 20, distance_m: 4100, description: '默认A返金海御府约4公里；其他商场以现场高德为准。', source: 'amap-mcp' }
-    ],
-    weather_decision: '**这一天不因晴天机械增加Plan B，而按看诊结束时间分流。** 13:30前结束：午餐→秦风源→商场；13:30-14:30结束：午餐→商场；14:30后结束或检查未完：取消戏曲，视体力只逛最近的开元或回酒店。医疗永远优先。'
-  });
-
-  (D.prebook || []).forEach(item => {
-    if (/广成大酒店|金海御府/.test(item.item || '')) {
-      item.item = '金海御府酒店（西安明城墙玉祥门地铁站店）两间房';
-      item.note = '连续4晚，叔叔单住一间，阿姨与女朋友一间；安静房、同层、含早优先。';
-    }
-    if (/接风宴二选一|铭家曲江店/.test(item.item || '')) {
-      item.item = '晓长安·新陕菜（曲江店）正式接风宴';
-      item.note = '8月8日17:40；已确定，订安静包间并备注一位不重辣。';
-    }
-    if (/长恨歌/.test(item.item || '')) {
-      item.item = '兵马俑＋《长恨歌》第一场＋返程车';
-      item.note = '保留第一场；第二场虽四人省300元，但散场更晚且次日上午就医，不建议切换。';
-    }
-    if (/临潼历史/.test(item.item || '')) {
-      item.item = '兵马俑＋《长恨歌》第一场＋返程车';
-      item.note = '午后进临潼，不再承诺华清宫白天深度游；保留第一场并提前约返程车。';
-    }
-    if (/医院确定号/.test(item.item || '')) {
-      item.note = item.note.replace('8月10日全天就医', '8月10日上午就医，下午按结束时间弹性安排');
-    }
-  });
-  if (D.budget_summary?.by_category?.tickets) {
-    Object.assign(D.budget_summary.by_category.tickets, {
-      min: 2636,
-      max: 2840,
-      note: '含大慈恩寺、芙蓉园、兵马俑、《长恨歌》第一场；上限再含秦风源。西安非遗大剧院具体场次票价待官方售票页确认，医疗与购物不计入。'
-    });
-    Object.assign(D.budget_summary, {
-      total_min: 4068,
-      total_max: 5592,
-      per_person_min: 1017,
-      per_person_max: 1398,
-      disclaimer: '不含酒店、往返高铁、实时打车、妆造订单、西安非遗大剧院待确认票价、医疗和购物。'
-    });
-  }
-})();
-  </script>
-
   <!-- ===== 渲染逻辑 ===== -->
   <script>
     'use strict';
@@ -4638,7 +4402,7 @@
           `<p class="note" style="margin-top:8px">📋 ${mdLite(d.weather_decision)}</p>` : '';
 
         const mallOptions = Array.isArray(d.mall_options) ? d.mall_options : [];
-        const mallChoiceKey = `travel-mall-choice-v007-day-${d.day}`;
+        const mallChoiceKey = `travel-mall-choice-v006-day-${d.day}`;
         const storedMallChoice = localStorage.getItem(mallChoiceKey);
         const selectedMallCode = mallOptions.some(option => option.code === storedMallChoice)
           ? storedMallChoice
@@ -5355,18 +5119,18 @@
   <script>
     (() => {
       const labels = {
-        'dinner-A': '旧方案 铭家曲江店',
-        'dinner-B': '晓长安曲江店（已确定）',
+        'dinner-A': 'Plan A 铭家曲江店',
+        'dinner-B': 'Plan B 晓长安曲江店',
         'medical-A': 'Plan A 确定性优先',
         'medical-B': 'Plan B 专科优先'
       };
       document.querySelectorAll('[data-choice-card]').forEach(card => {
         const group = card.dataset.choiceCard;
-        const key = `travel-v007-choice-${group}`;
+        const key = `travel-v006-choice-${group}`;
         const options = [...card.querySelectorAll('[data-choice-option]')];
         const saved = localStorage.getItem(key);
         const initial = options.some(row => row.dataset.choiceOption === saved)
-          ? saved : (group === 'dinner' ? 'dinner-B' : `${group}-A`);
+          ? saved : `${group}-A`;
         const apply = value => {
           options.forEach(row => {
             const active = row.dataset.choiceOption === value;
