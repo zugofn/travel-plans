@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v007.4 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v007.3 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1324,15 +1324,15 @@
         <option value="v006.html">006 · 酒店、晚宴与医疗双方案</option>
         <option value="v007.html">007.1 · 舒适动线定稿</option>
         <option value="v007.2.html">007.2 · 早市泡馍与骊山评估</option>
-        <option value="v007.3.html">007.3 · 午后临潼与骊山实走</option>
-        <option value="index.html" selected>007.4 · 兵马俑丽山园与西安事变（当前）</option>
+        <option value="v007.3.html" selected>007.3 · 午后临潼与骊山实走（当前）</option>
+        <option value="index.html">007.4 · 兵马俑丽山园与西安事变</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v007.4</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v007.3</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；Day 3上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→丽山园→华清宫西安事变旧址→晚饭→《长恨歌》第二场执行。</p>
+      <p class="summary">入住金海御府；Day 3 上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→骊山徒步/索道组合→晚饭→《长恨歌》第二场执行，不参观华清宫景点。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -3797,68 +3797,6 @@
   D.xhs_destination_brief.source_notes = [
     { title: '西安震撼一日｜兵马俑＋骊山＋长恨歌', url: 'https://www.xiaohongshu.com/explore/6a5651f9000000002003bd06' },
     { title: '6小时参观华清宫，爬完骊山，看了长恨歌', url: 'https://www.xiaohongshu.com/explore/684444ef0000000012007aa4' },
-    { title: '长恨歌第二场21:35开始，大概22:38结束', url: 'https://www.xiaohongshu.com/explore/6a2c291d0000000021021032' }
-  ];
-})();
-  </script>
-
-  <script>
-// v007.4: requested 13:00 departure and Terracotta Warriors -> Lishan Park ->
-// Xi'an Incident sites -> dinner -> second Chang Hen Ge sequence.
-(() => {
-  const D = window.tripData;
-  if (!D) return;
-
-  D.trip_name = '第一次见面 · 西安四晚舒适行 v007.4';
-  D.summary = '入住金海御府；Day 3上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→丽山园→华清宫西安事变旧址→晚饭→《长恨歌》第二场执行。';
-
-  const day3 = D.days.find(day => day.day === 3);
-  Object.assign(day3, {
-    region: '小南门 / 北广济街 / 兵马俑 / 丽山园 / 华清宫',
-    theme: '上午慢节奏，13:00出发，兵马俑、丽山园与西安事变核心线',
-    center: [109.259123, 34.382568],
-    pois: [
-      { idx: 1, time: '06:20', name: '小南门便民早市', cat: 'food', type: 'outdoor', tags: ['outdoor'], lng: 108.935920, lat: 34.251947, duration_min: 60, weather_sensitive: true, indoor_backup: '取消早市，继续在酒店休息', note: '高德登记周二至周日06:00-09:00。只少量尝味，07:20离开，为泡馍留胃口。', why: '按既定安排由女朋友带父母去，后面专门留有回酒店休息时间。' },
-      { idx: 2, time: '07:35', name: '返回金海御府 · 补觉与整理', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 100, note: '洗漱、补水并休息；09:20左右再叫车。', why: '避免把早市、泡馍和临潼连成无休息的长线。' },
-      { idx: 3, time: '09:35', name: '老刘家泡馍·陕西老字号（北广济街）', cat: 'food', lng: 108.939087, lat: 34.261193, duration_min: 55, note: '高德登记北广济街101号、评分4.7、人均约23元，周日05:00-20:30。四人先按3碗量点，避免过饱。', why: '满足叔叔喜欢泡馍的明确偏好，同时避开临潼景区午餐排队。' },
-      { idx: 4, time: '10:50', name: '回金海御府 · 午休与出发准备', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 115, note: '带雨衣、防滑鞋、替换袜、饮水和身份证。12:45下楼叫车，13:00准时出发。', why: '下午三个预约型景区连续衔接，13:00不能再晚。' },
-      { idx: 5, time: '14:00', name: '秦始皇帝陵博物院（兵马俑） · 90分钟核心线', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 90, requires_booking: true, note: '高德金海御府至兵马俑约42.4公里/57分钟。14:00入园，集中看1号坑、3号坑、2号坑，15:30必须离开展厅。高德当前显示8月9日开放至19:30、最晚17:30入园，但后续丽山园采用更早的关闭边界。', why: '13:00出发还要加入丽山园和西安事变旧址，兵马俑只能保留最有价值的90分钟讲解。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '兵马俑＋丽山园联票', source: 'official-site', source_ref: '秦始皇帝陵博物院门票包含兵马俑与丽山园' } },
-      { idx: 6, time: '15:50', name: '秦始皇帝陵博物院丽山园 · 电瓶车核心线', cat: 'culture', type: 'outdoor', tags: ['outdoor'], lng: 109.259123, lat: 34.382568, duration_min: 60, weather_sensitive: true, indoor_backup: '若中到大雨或抵达已晚，取消丽山园，直接去华清宫西安事变旧址', note: '高德当前登记08:30-17:00，按更严格边界执行：15:50进入、16:50离开。园内范围大，直接购买电瓶车，只看铜车马馆、百戏俑坑或铠甲坑中的核心点，不徒步绕全园。小红书高互动攻略确认兵马俑与丽山园之间有免费摆渡，但从兵马俑出口去上车点会经过较长商业街；本计划为守时，建议约车走高德2.8公里/约16分钟。', why: '这是全日最紧的一段；只有乘车核心游才能在17:00关闭边界前完成。' },
-      { idx: 7, time: '17:10', name: '华清宫 · 西安事变旧址核心线', cat: 'culture', lng: 109.213292, lat: 34.362306, duration_min: 50, note: '丽山园至五间厅高德约6.4公里/20分钟。只看五间厅、枪战弹孔及环园相关旧址，不看御汤遗址、不逛华清宫园林、不上兵谏亭。高德对弹孔点登记开放至18:00，必须18:00结束。', why: '“西安事变”按历史信息密度最高且平地可完成的五间厅核心线执行；兵谏亭需要继续登高，和17:00后时间、父母体力及小雨预报冲突。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '华清宫门票', source: 'official-site', source_ref: '五间厅和西安事变旧址位于华清宫票区' } },
-      { idx: 8, time: '18:10', name: '华清宫外附近 · 晚饭与长休息', cat: 'food', lng: 109.212541, lat: 34.363852, duration_min: 80, note: '选择出餐快、清淡、有座位的餐厅，19:30前结束。之后继续坐下休息，20:55左右再去检票，不新增景点。', why: '连续三个历史点后必须把第二场前的空档用于吃饭和恢复。' },
-      { idx: 9, time: '21:35', name: '《长恨歌》第二场', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 65, weather_sensitive: true, indoor_backup: '如官方因极端天气取消，按购票平台规则处理并直接返城', note: '小红书近期实测约21:35开演、22:38结束。第二场给丽山园和西安事变旧址留下容错，且符合四人合计约省300元的当前报价。散场后不依赖地铁，提前预约返金海御府车辆。', why: '第一场理论上也能赶，但几乎没有景区延误余量；本版保留第二场更稳。', price: { min: 1216, max: 1216, currency: 'CNY', unit: 'group', quantity: 1, total_min: 1216, total_max: 1216, label: '四人第二场参考', source: 'user-confirmed', source_ref: '用户购票页所见第二场较第一场合计省约300元' } }
-    ],
-    transports: [
-      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 10, distance_m: 2300, description: '金海御府至小南门；清晨预留叫车时间。', source: 'amap-mcp' },
-      { from_idx: 1, to_idx: 2, mode: 'driving', duration_min: 11, distance_m: 3391, description: '小南门返金海御府，高德当前约3.4公里/11分钟。', source: 'amap-mcp' },
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 15, distance_m: 2939, description: '金海御府至北广济街老刘家泡馍，高德约2.9公里/15分钟。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 15, distance_m: 3000, description: '泡馍店返回金海御府午休；以现场高德叫车页为准。', source: 'amap-mcp' },
-      { from_idx: 4, to_idx: 5, mode: 'driving', duration_min: 57, distance_m: 42417, description: '13:00金海御府出发至兵马俑，高德当前约42.4公里/57分钟。', source: 'amap-mcp' },
-      { from_idx: 5, to_idx: 6, mode: 'driving', duration_min: 16, distance_m: 2799, description: '兵马俑至丽山园高德驾车约2.8公里/16分钟；固定时间轴下优先预约车辆，免费摆渡作为不赶时间备选。', source: 'amap-mcp' },
-      { from_idx: 6, to_idx: 7, mode: 'driving', duration_min: 20, distance_m: 6379, description: '16:50离开丽山园至华清宫五间厅，高德当前约6.4公里/20分钟。', source: 'amap-mcp' },
-      { from_idx: 7, to_idx: 8, mode: 'walking', duration_min: 5, distance_m: 347, description: '五间厅区域至华清宫外演出与餐饮区域约347米/5分钟，最终按出口和餐厅调整。', source: 'amap-mcp' },
-      { from_idx: 8, to_idx: 9, mode: 'walking', duration_min: 5, distance_m: 350, description: '晚饭与休息区步行至《长恨歌》检票区。', source: 'computed' },
-      { from_idx: 9, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '第二场约22:38散场后返金海御府；提前约车，按80分钟以上门到门准备。', source: 'amap-mcp' }
-    ],
-    meals: {
-      breakfast: { main: { name: '小南门早市（少量尝味）', why: '少量吃，为泡馍留胃口。' } },
-      lunch: { main: { name: '老刘家泡馍·陕西老字号（北广济街）', why: '作为早午餐，之后回酒店午休。' } },
-      dinner: { main: { name: '华清宫外附近清淡快餐', why: '18:00结束西安事变旧址后立即吃饭，第二场前坐下休息。' } }
-    },
-    weather_decision: '**8月9日高德预报小雨，丽山园是唯一需要天气Plan B的核心段。** Plan A（小雨或已停雨、园区正常开放）：乘园内电瓶车完成60分钟核心线。Plan B（中到大雨、园区临时限制、15:50仍未抵达或家人疲劳）：取消丽山园，直接去华清宫五间厅，确保18:00前完成西安事变旧址。兵马俑坑区、五间厅和晚饭照常；《长恨歌》是否演出以官方当日通知为准。'
-  });
-
-  (D.prebook || []).forEach(item => {
-    if (/兵马俑/.test(item.item || '') || /临潼历史/.test(item.item || '')) {
-      item.item = '兵马俑＋丽山园＋华清宫西安事变旧址＋《长恨歌》第二场＋返程车';
-      item.note = '13:00从金海御府出发；兵马俑15:30离馆、丽山园16:50离园、五间厅18:00结束是三个硬截止点。预约临潼段车辆和第二场散场返程车。';
-    }
-  });
-
-  D.xhs_destination_brief = D.xhs_destination_brief || {};
-  D.xhs_destination_brief.source_notes = [
-    { title: '兵马俑 丽山园避坑 碎碎念', url: 'https://www.xiaohongshu.com/explore/6a350dd700000000110188dc' },
-    { title: '西安震撼一日｜兵马俑＋骊山＋长恨歌', url: 'https://www.xiaohongshu.com/explore/6a5651f9000000002003bd06' },
     { title: '长恨歌第二场21:35开始，大概22:38结束', url: 'https://www.xiaohongshu.com/explore/6a2c291d0000000021021032' }
   ];
 })();
