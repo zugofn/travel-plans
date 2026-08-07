@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v7.2 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v007.2 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1322,13 +1322,13 @@
         <option value="archive.html?v=004">004 · 商场四选一</option>
         <option value="archive.html?v=005">005 · 西安博物院替代方案</option>
         <option value="v006.html">006 · 酒店、晚宴与医疗双方案</option>
-        <option value="v007.html">007 · 舒适动线定稿</option>
-        <option value="index.html" selected>7.2 · 早市泡馍与骊山评估（当前）</option>
+        <option value="v007.html">007.1 · 舒适动线定稿</option>
+        <option value="index.html" selected>007.2 · 早市泡馍与骊山评估（当前）</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v7.2</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v007.2</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
       <p class="summary">入住金海御府；Day 2 取消早市。Day 3 小南门早市＋回民街泡馍后赴临潼，保留兵马俑、华清宫，并按天气与体力选择骊山轻量段和《长恨歌》场次。</p>
     </header>
@@ -3643,13 +3643,13 @@
   </script>
 
   <script>
-// v7.2: move Xiaonanmen morning market to Day 3, replace the mall stop with
+// v007.2: move Xiaonanmen morning market to Day 3, replace the mall stop with
 // traditional paomo, and make Lishan a weather/fitness-gated light segment.
 (() => {
   const D = window.tripData;
   if (!D) return;
 
-  D.trip_name = '第一次见面 · 西安四晚舒适行 v7.2';
+  D.trip_name = '第一次见面 · 西安四晚舒适行 v007.2';
   D.summary = '入住金海御府；Day 2取消早市。Day 3小南门早市＋回民街泡馍后赴临潼，保留兵马俑、华清宫，并按天气与体力选择骊山轻量段和《长恨歌》场次。';
 
   const day2 = D.days.find(day => day.day === 2);
@@ -3707,7 +3707,7 @@
       lunch: { main: { name: '老刘家泡馍·陕西老字号（北广济街）', why: '09:35作为早午餐，吃完直接赴临潼。' } },
       dinner: { main: { name: '华清宫附近清淡晚餐', why: '晚餐后长休息，再按最终场次检票。' } }
     },
-    weather_decision: '**8月9日高德预报小雨，因此真正需要Plan B的是骊山。** Plan A（无雨、台阶干、体力好）：华清宫后只走到兵谏亭附近即返；Plan B（仍在下雨、地面湿滑或任一人疲劳）：彻底取消骊山，在游客中心坐下休息。完整登烽火台不纳入7.2执行方案。第二场不是雨天Plan B；是否选第二场，只看300元价差、次日就诊时间和当天体力。'
+    weather_decision: '**8月9日高德预报小雨，因此真正需要Plan B的是骊山。** Plan A（无雨、台阶干、体力好）：华清宫后只走到兵谏亭附近即返；Plan B（仍在下雨、地面湿滑或任一人疲劳）：彻底取消骊山，在游客中心坐下休息。完整登烽火台不纳入007.2执行方案。第二场不是雨天Plan B；是否选第二场，只看300元价差、次日就诊时间和当天体力。'
   });
 
   (D.prebook || []).forEach(item => {

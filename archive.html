@@ -32,15 +32,15 @@
       <option value="004">004 · 商场四选一</option>
       <option value="005">005 · 西安博物院替代方案</option>
       <option value="006">006 · 酒店、晚宴与医疗双方案</option>
-      <option value="007">007 · 舒适动线定稿</option>
-      <option value="7.2">7.2 · 早市泡馍与骊山评估（当前）</option>
+      <option value="007.1">007.1 · 舒适动线定稿</option>
+      <option value="007.2">007.2 · 早市泡馍与骊山评估（当前）</option>
     </select>
     <strong>第一次见面 · 西安四晚舒适行</strong>
   </header>
   <div class="status" id="status">正在读取版本…</div>
   <iframe id="version-frame" title="历史版本行程" hidden></iframe>
   <script>
-    const versions = new Set(['001', '002', '003', '004', '005', '006', '007', '7.2']);
+    const versions = new Set(['001', '002', '003', '004', '005', '006', '007.1', '007.2']);
     const params = new URLSearchParams(location.search);
     const selected = versions.has(params.get('v')) ? params.get('v') : '001';
     const select = document.getElementById('version-select');
@@ -50,12 +50,17 @@
 
     select.addEventListener('change', () => {
       if (select.value === '006') location.href = './v006.html';
-      else if (select.value === '007') location.href = './v007.html';
-      else if (select.value === '7.2') location.href = './index.html';
+      else if (select.value === '007.1') location.href = './v007.html';
+      else if (select.value === '007.2') location.href = './index.html';
       else location.href = `./archive.html?v=${select.value}`;
     });
 
-    fetch(`https://raw.githubusercontent.com/zugofn/travel-plans/v${selected}/index.html`)
+    const localVersionPage = selected === '007.1' ? './v007.html' : selected === '007.2' ? './index.html' : '';
+    if (localVersionPage) {
+      frame.src = localVersionPage;
+      frame.hidden = false;
+      status.remove();
+    } else fetch(`https://raw.githubusercontent.com/zugofn/travel-plans/v${selected}/index.html`)
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.text();
