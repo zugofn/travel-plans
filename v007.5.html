@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v007.6 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v007.5 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1326,15 +1326,14 @@
         <option value="v007.2.html">007.2 · 早市泡馍与骊山评估</option>
         <option value="v007.3.html">007.3 · 午后临潼与骊山实走</option>
         <option value="v007.4.html">007.4 · 两场演出硬时间版</option>
-        <option value="v007.5.html">007.5 · 华清宫游赏顺序优化</option>
-        <option value="index.html" selected>007.6 · 晚起早市直发临潼（当前）</option>
+        <option value="index.html" selected>007.5 · 华清宫游赏顺序优化（当前）</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v007.6</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v007.5</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；Day 3八点起床，早市与泡馍后不再折返酒店，11:00直接出发临潼，约12:05抵达兵马俑，再衔接丽山园、华清宫和两场演出。</p>
+      <p class="summary">入住金海御府；Day 3推荐方案一：先购得16:30《西安事变》，再按13:00兵马俑→丽山园→华清宫与演出→19:00晚饭→21:35《长恨歌》第二场执行。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -4021,62 +4020,6 @@ const applyV0074FixedShowTimes = () => {
       per_person_max: 1518
     });
   }
-})();
-  </script>
-
-  <script>
-// v007.6: sleep later, visit the market near closing, then leave directly for Lintong.
-(() => {
-  const D = window.tripData;
-  if (!D) return;
-
-  D.trip_name = '第一次见面 · 西安四晚舒适行 v007.6';
-  D.summary = '入住金海御府；Day 3八点起床，早市与泡馍后不再折返酒店，11:00直接出发临潼，约12:05抵达兵马俑，再衔接丽山园、华清宫和两场演出。';
-
-  const day3 = D.days.find(day => day.day === 3);
-  Object.assign(day3, {
-    region: '小南门 / 北广济街 / 兵马俑 / 丽山园 / 华清宫',
-    theme: '八点起床，早市和泡馍后直接去临潼，兵马俑恢复完整核心参观',
-    center: [109.215759, 34.356728],
-    pois: [
-      { idx: 1, time: '08:25', name: '小南门便民早市 · 收市前短逛', cat: 'food', type: 'outdoor', tags: ['outdoor'], lng: 108.935920, lat: 34.251947, duration_min: 35, weather_sensitive: true, indoor_backup: '取消早市，直接去老刘家泡馍', note: '08:00起床，08:15前叫车出发。高德实时登记周二至周日06:00-09:00，必须在09:00前结束；临近收市只选仍正常出摊的摊位，不为排队耽误后续。', why: '比06:20版本多睡近两小时，同时保留早市体验；代价是只能逛约35分钟。' },
-      { idx: 2, time: '09:15', name: '老刘家泡馍·陕西老字号（北广济街）', cat: 'food', lng: 108.939087, lat: 34.261193, duration_min: 95, note: '高德实时登记北广济街101号、评分4.7、人均约23元，周日05:00-20:30。09:15左右到店，10:50结束；四人先按3碗量点，避免过饱。', why: '早市到店高德约1.9公里/9分钟；时间充足，可以从容掰馍和吃完。' },
-      { idx: 3, time: '12:05', name: '秦始皇帝陵博物院（兵马俑） · 完整核心线', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 145, requires_booking: true, note: '11:00从泡馍店直接叫车出发，高德实时约42.4公里/65分钟，按12:05到达。12:05-14:30依次看1号坑、3号坑、2号坑，可安排正规讲解；14:30仍是硬离场时间。', why: '取消返回酒店的折返后，兵马俑由90分钟恢复到2小时25分钟，是本次调整的最大收益。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '兵马俑＋丽山园联票', source: 'official-site', source_ref: '秦始皇帝陵博物院门票包含兵马俑与丽山园' } },
-      { idx: 4, time: '14:50', name: '秦始皇帝陵博物院丽山园 · 电瓶车精华线', cat: 'culture', type: 'outdoor', tags: ['outdoor'], lng: 109.259123, lat: 34.382568, duration_min: 50, weather_sensitive: true, indoor_backup: '取消丽山园，提前前往华清宫', note: '高德实时登记08:30-17:00。兵马俑至丽山园驾车约2.8公里/16分钟；到园直接乘电瓶车，15:40必须离园。', why: '50分钟只取铜车马馆等核心点，优先保证后续16:30演出。' },
-      { idx: 5, time: '16:00', name: '华清宫 · 入园与演出核验', cat: 'culture', lng: 109.215759, lat: 34.356728, duration_min: 20, note: '丽山园至华清宫高德约6.2公里/20分钟。16:00左右抵达，先核验《西安事变》入口，最晚16:20完成入场。', why: '演出前只做入场准备，不临时游园。' },
-      { idx: 6, time: '16:30', name: '《12·12西安事变》演出（方案一待购）', cat: 'show', type: 'indoor', lng: 109.214258, lat: 34.362287, duration_min: 60, requires_booking: true, note: '推荐购买16:30-17:30场，当前尚未订票；余票、票价和入口以购票页为准。', why: '买到这一场，整条临潼路线才能按方案一闭环。' },
-      { idx: 7, time: '17:30', name: '华清宫 · 闭园前游赏', cat: 'culture', type: 'outdoor', tags: ['outdoor'], lng: 109.215759, lat: 34.356728, duration_min: 80, weather_sensitive: true, indoor_backup: '小雨缩短为五间厅等平地核心线；大雨则提前吃饭', note: '高德实时详情登记当前07:00-19:00开放。游览九龙湖、唐御汤遗址、五间厅等平地核心点，18:50向出口收尾；不再上骊山。', why: '利用17:30-19:00闭园前窗口完成华清宫核心点。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '华清宫基础门票', source: 'amap-mcp', source_ref: '高德华清宫POI详情与开放时间；实际票种以订单为准' } },
-      { idx: 8, time: '19:00', name: '华清宫外附近 · 晚饭', cat: 'food', lng: 109.212541, lat: 34.363852, duration_min: 75, note: '选择出餐稳定、清淡、有座位的餐厅，20:15结束。', why: '正常吃饭后仍有充足时间步行回演出区。' },
-      { idx: 9, time: '21:00', name: '《长恨歌》演出区 · 取票检票', cat: 'show', lng: 109.212541, lat: 34.363852, duration_min: 25, note: '21:00回到演出区，按订单要求完成取票、安检和入场。', why: '给21:35第二场留下35分钟现场缓冲。' },
-      { idx: 10, time: '21:35', name: '《长恨歌》第二场（已订场次）', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 65, weather_sensitive: true, indoor_backup: '如官方因极端天气调整，按购票平台规则处理并直接返城', note: '订单场次21:35-22:40。散场后提前预约返金海御府车辆，预计约23:40到酒店。', why: '已经确定的硬节点。', price: { min: 1216, max: 1216, currency: 'CNY', unit: 'group', quantity: 1, total_min: 1216, total_max: 1216, label: '四人第二场参考', source: 'user-confirmed', source_ref: '用户购票页与已确认场次' } }
-    ],
-    transports: [
-      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 12, distance_m: 3585, description: '08:15前从金海御府叫车，至小南门早市高德实时约3.6公里/12分钟。', source: 'amap-mcp' },
-      { from_idx: 1, to_idx: 2, mode: 'driving', duration_min: 9, distance_m: 1911, description: '09:00离开早市，至北广济街老刘家泡馍高德实时约1.9公里/9分钟。', source: 'amap-mcp' },
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 65, distance_m: 42373, description: '11:00从泡馍店直接去兵马俑，高德实时约42.4公里/65分钟；不再折返酒店。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 16, distance_m: 2799, description: '14:30兵马俑至丽山园，高德实时约2.8公里/16分钟。', source: 'amap-mcp' },
-      { from_idx: 4, to_idx: 5, mode: 'driving', duration_min: 20, distance_m: 6246, description: '15:40丽山园至华清宫演出区域，高德实时约6.2公里/20分钟。', source: 'amap-mcp' },
-      { from_idx: 5, to_idx: 6, mode: 'walking', duration_min: 10, distance_m: 350, description: '华清宫内按订单指引前往《西安事变》入口，预留核验时间。', source: 'computed' },
-      { from_idx: 6, to_idx: 7, mode: 'walking', duration_min: 0, distance_m: 0, description: '演出结束后直接在华清宫票区内开始平地核心游赏。', source: 'computed' },
-      { from_idx: 7, to_idx: 8, mode: 'walking', duration_min: 10, distance_m: 700, description: '18:50向出口收尾，步行至华清宫外餐饮区约10分钟。', source: 'computed' },
-      { from_idx: 8, to_idx: 9, mode: 'walking', duration_min: 10, distance_m: 600, description: '20:15晚饭结束后步行回《长恨歌》演出区域。', source: 'computed' },
-      { from_idx: 9, to_idx: 10, mode: 'walking', duration_min: 10, distance_m: 0, description: '已在演出区域，按现场指引检票入座。', source: 'computed' },
-      { from_idx: 10, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '22:40散场返金海御府，基础车程约60分钟；提前约车并为散场拥堵留余量。', source: 'amap-mcp' }
-    ],
-    meals: {
-      breakfast: { main: { name: '小南门早市（收市前少量尝味）', why: '08:25-09:00短逛，为泡馍留胃口。' } },
-      lunch: { main: { name: '老刘家泡馍·陕西老字号（北广济街）', why: '09:15-10:50作为早午餐，吃完直接出发临潼。' } },
-      dinner: { main: { name: '华清宫外附近清淡餐厅', why: '19:00闭园后用餐75分钟，21:00回到演出区。' } }
-    },
-    weather_decision: '**本版可执行，但09:00是早市硬截止。** 08:15仍未离开酒店，则直接取消早市去吃泡馍；11:00左右从泡馍店直发临潼。中到大雨、14:30仍未离开兵马俑或15:40仍未离开丽山园，则取消后续非预约户外段。先确认《西安事变》16:30场有票；21:35《长恨歌》为已确定硬节点。'
-  });
-
-  (D.prebook || []).forEach(item => {
-    if (/兵马俑/.test(item.item || '') || /临潼历史/.test(item.item || '')) {
-      item.item = '007.6：早市＋泡馍后直发临潼；《西安事变》16:30场待购，《长恨歌》21:35场已确定';
-      item.note = '08:00起床、08:15前出门、08:25-09:00早市、09:15-10:50泡馍、11:00直发兵马俑，约12:05抵达；14:30离馆后继续丽山园与华清宫。08:15仍未出门则取消早市。';
-    }
-  });
 })();
   </script>
 
