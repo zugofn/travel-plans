@@ -1332,7 +1332,7 @@
     <header class="hero">
       <h1>第一次见面 · 西安四晚舒适行 v007.4</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；Day 3上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→丽山园→华清宫西安事变旧址→晚饭→《长恨歌》第一场执行。</p>
+      <p class="summary">入住金海御府；Day 3上午早市与泡馍后回酒店休息，12:00出发，按兵马俑→丽山园→16:30《西安事变》→晚饭与喝茶→21:35《长恨歌》第二场执行。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -3262,6 +3262,75 @@
     });
   }
 })();
+
+// v007.4 fixed-order update: user-confirmed show times on August 9.
+const applyV0074FixedShowTimes = () => {
+  const D = window.tripData;
+  if (!D) return;
+
+  D.summary = '入住金海御府；Day 3上午早市与泡馍后回酒店休息，12:00出发，按兵马俑→丽山园→16:30《西安事变》→晚饭与喝茶→21:35《长恨歌》第二场执行。';
+
+  const day3 = D.days.find(day => day.day === 3);
+  Object.assign(day3, {
+    region: '小南门 / 北广济街 / 兵马俑 / 丽山园 / 华清宫',
+    theme: '12:00出发，串联兵马俑、丽山园和两个已订演出场次',
+    center: [109.259123, 34.382568],
+    pois: [
+      { idx: 1, time: '06:20', name: '小南门便民早市', cat: 'food', type: 'outdoor', tags: ['outdoor'], lng: 108.935920, lat: 34.251947, duration_min: 60, weather_sensitive: true, indoor_backup: '取消早市，继续在酒店休息', note: '高德登记周二至周日06:00-09:00。只少量尝味，07:20离开，为泡馍留胃口。', why: '按既定安排由女朋友带父母去，后面留有回酒店补觉时间。' },
+      { idx: 2, time: '07:35', name: '返回金海御府 · 补觉与整理', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 100, note: '洗漱、补水并休息，09:20左右再叫车。', why: '避免把早市、泡馍和临潼排成无休息的长线。' },
+      { idx: 3, time: '09:35', name: '老刘家泡馍·陕西老字号（北广济街）', cat: 'food', lng: 108.939087, lat: 34.261193, duration_min: 55, note: '高德登记北广济街101号、评分4.7、人均约23元，周日05:00-20:30。四人先按3碗量点，避免过饱。', why: '满足叔叔喜欢泡馍的明确偏好。' },
+      { idx: 4, time: '10:50', name: '回金海御府 · 午休与出发准备', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 55, note: '带雨衣、防滑鞋、替换袜、饮水和身份证。11:45下楼叫车，12:00准时出发。', why: '16:30《西安事变》是已订硬场次；13:00出发无法可靠兼顾兵马俑和丽山园。' },
+      { idx: 5, time: '13:00', name: '秦始皇帝陵博物院（兵马俑） · 核心线', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 100, requires_booking: true, note: '高德金海御府至兵马俑约42.4公里/57分钟。集中看1号坑、3号坑、2号坑，14:40必须离开展厅，不在文创区停留。', why: '100分钟保住核心讲解，并为16:30已订演出留出刚性路程。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '兵马俑＋丽山园联票', source: 'official-site', source_ref: '秦始皇帝陵博物院门票包含兵马俑与丽山园' } },
+      { idx: 6, time: '15:00', name: '秦始皇帝陵博物院丽山园 · 电瓶车核心线', cat: 'culture', type: 'outdoor', tags: ['outdoor'], lng: 109.259123, lat: 34.382568, duration_min: 60, weather_sensitive: true, indoor_backup: '取消丽山园，直接去华清宫演出场地', note: '到园后直接乘电瓶车，只取铜车马馆、百戏俑坑或铠甲坑核心点，16:00离园。兵马俑至丽山园高德驾车约2.8公里/16分钟；免费摆渡不适合本日赶固定场次。', why: '一小时是当前时间轴能容纳的上限；超过14:40还未离开兵马俑就应取消本段。' },
+      { idx: 7, time: '16:30', name: '《西安事变》演出（已订场次）', cat: 'show', type: 'indoor', lng: 109.213292, lat: 34.362306, duration_min: 60, requires_booking: true, note: '订单场次16:30-17:30。丽山园至华清宫区域高德约6.4公里/20分钟，按16:20抵达、预留10分钟核验入场；具体入口以订单通知为准。', why: '用户已确认的固定场次，优先级高于丽山园。演出票价以实际订单为准，未另行计入预算。' },
+      { idx: 8, time: '17:40', name: '华清宫外附近 · 晚饭', cat: 'food', lng: 109.212541, lat: 34.363852, duration_min: 70, note: '选择出餐稳定、清淡、有座位的餐厅，18:50结束。', why: '演出后正常吃饭；后续另有喝茶与检票节点，不把整段笼统写成休息。' },
+      { idx: 9, time: '19:05', name: '观山茶事 · 天台茶歇', cat: 'food', lng: 109.212881, lat: 34.366977, duration_min: 70, note: '高德登记在万澳致选酒店6楼天台花园，评分4.6、人均约65元，周日10:00-23:00。建议提前电话确认座位。', why: '填补第二场前的真实空档，也对应叔叔喜欢喝茶；全程有座位。', price: { min: 65, max: 65, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 260, total_max: 260, label: '茶歇参考', source: 'amap-mcp', source_ref: '高德POI人均与营业时间' } },
+      { idx: 10, time: '20:25', name: '《长恨歌》取票、检票与候场', cat: 'show', lng: 109.212541, lat: 34.363852, duration_min: 55, note: '从茶馆步行约7分钟，按订单要求取票、安检和入场。建议最迟20:25到演出区域，不再临时增加景点。', why: '这是第二场必要的入场准备，不是人为拉长的休息。' },
+      { idx: 11, time: '21:35', name: '《长恨歌》第二场（已订场次）', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 65, weather_sensitive: true, indoor_backup: '如官方因极端天气取消，按购票平台规则处理并直接返城', note: '订单场次21:35-22:40。散场后不依赖地铁，提前预约返金海御府车辆，预计约23:40到酒店，拥堵时可能更晚。', why: '采用用户确认的第二场，四人合计较第一场约省300元。', price: { min: 1216, max: 1216, currency: 'CNY', unit: 'group', quantity: 1, total_min: 1216, total_max: 1216, label: '四人第二场参考', source: 'user-confirmed', source_ref: '用户购票页与已确认场次' } }
+    ],
+    transports: [
+      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 10, distance_m: 2300, description: '金海御府至小南门，清晨预留叫车时间。', source: 'amap-mcp' },
+      { from_idx: 1, to_idx: 2, mode: 'driving', duration_min: 11, distance_m: 3391, description: '小南门返金海御府，高德约3.4公里/11分钟。', source: 'amap-mcp' },
+      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 15, distance_m: 2939, description: '金海御府至北广济街老刘家泡馍，高德约2.9公里/15分钟。', source: 'amap-mcp' },
+      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 15, distance_m: 3000, description: '泡馍店返回金海御府午休，以现场叫车页为准。', source: 'amap-mcp' },
+      { from_idx: 4, to_idx: 5, mode: 'driving', duration_min: 57, distance_m: 42417, description: '12:00金海御府出发至兵马俑，高德约42.4公里/57分钟。', source: 'amap-mcp' },
+      { from_idx: 5, to_idx: 6, mode: 'driving', duration_min: 16, distance_m: 2799, description: '14:40兵马俑至丽山园，高德驾车约2.8公里/16分钟。', source: 'amap-mcp' },
+      { from_idx: 6, to_idx: 7, mode: 'driving', duration_min: 20, distance_m: 6379, description: '16:00丽山园至华清宫演出区域，高德约6.4公里/20分钟；16:20抵达。', source: 'amap-mcp' },
+      { from_idx: 7, to_idx: 8, mode: 'walking', duration_min: 5, distance_m: 347, description: '演出区域步行至华清宫外餐饮区约5分钟，最终按出口和餐厅调整。', source: 'amap-mcp' },
+      { from_idx: 8, to_idx: 9, mode: 'walking', duration_min: 10, distance_m: 749, description: '餐饮区步行至观山茶事，高德约749米/10分钟。', source: 'amap-mcp' },
+      { from_idx: 9, to_idx: 10, mode: 'walking', duration_min: 7, distance_m: 507, description: '观山茶事步行至《长恨歌》区域，高德约507米/7分钟。', source: 'amap-mcp' },
+      { from_idx: 10, to_idx: 11, mode: 'walking', duration_min: 2, distance_m: 0, description: '已在演出区域内，按现场指引由检票区入座。', source: 'computed' },
+      { from_idx: 11, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '22:40散场返金海御府，基础车程约60分钟；提前约车并为散场拥堵留余量。', source: 'amap-mcp' }
+    ],
+    meals: {
+      breakfast: { main: { name: '小南门早市（少量尝味）', why: '少量吃，为泡馍留胃口。' } },
+      lunch: { main: { name: '老刘家泡馍·陕西老字号（北广济街）', why: '作为早午餐，之后回酒店午休。' } },
+      dinner: { main: { name: '华清宫外附近清淡餐厅', why: '17:30演出结束后用餐70分钟，再步行喝茶。' } }
+    },
+    weather_decision: '**8月9日高德预报小雨，只有丽山园设置天气 Plan B。** Plan A（小雨或已停雨、园区正常开放）：15:00-16:00乘电瓶车完成核心线。Plan B（中到大雨、园区限制、12:10仍未离开酒店，或14:40仍未离开兵马俑）：取消丽山园，直接前往华清宫演出区域。16:30《西安事变》和21:35《长恨歌》均按已订场次执行；《长恨歌》如因天气调整，以官方当日通知为准。'
+  });
+
+  (D.prebook || []).forEach(item => {
+    if (/兵马俑/.test(item.item || '') || /临潼历史/.test(item.item || '')) {
+      item.item = '兵马俑＋丽山园＋16:30《西安事变》＋21:35《长恨歌》第二场＋返程车';
+      item.note = '12:00从金海御府出发。12:10仍未出发或14:40仍未离开兵马俑，则取消丽山园；16:30-17:30和21:35-22:40两个已订演出场次优先。';
+    }
+  });
+
+  if (D.budget_summary?.by_category?.tickets) {
+    Object.assign(D.budget_summary.by_category.tickets, {
+      min: 2816,
+      max: 3320,
+      note: '含大慈恩寺、芙蓉园、兵马俑与丽山园、华清宫基础票及《长恨歌》第二场；《西安事变》演出票差价按实际订单，未另行虚构计入。上限再含秦风源。'
+    });
+    Object.assign(D.budget_summary, {
+      total_min: 4508,
+      total_max: 6332,
+      per_person_min: 1127,
+      per_person_max: 1583
+    });
+  }
+};
   </script>
 
   <script>
@@ -3875,6 +3944,7 @@
       per_person_max: 1518
     });
   }
+  applyV0074FixedShowTimes();
 })();
   </script>
 
