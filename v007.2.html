@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>第一次见面 · 西安四晚舒适行 v007.3 · 2026-08-07 至 2026-08-11</title>
+  <title>第一次见面 · 西安四晚舒适行 v007.2 · 2026-08-07 至 2026-08-11</title>
   <style>
     /* ===== 基础 ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -1323,15 +1323,15 @@
         <option value="archive.html?v=005">005 · 西安博物院替代方案</option>
         <option value="v006.html">006 · 酒店、晚宴与医疗双方案</option>
         <option value="v007.html">007.1 · 舒适动线定稿</option>
-        <option value="v007.2.html">007.2 · 早市泡馍与骊山评估</option>
-        <option value="index.html" selected>007.3 · 午后临潼与骊山实走（当前）</option>
+        <option value="v007.2.html" selected>007.2 · 早市泡馍与骊山评估（当前）</option>
+        <option value="index.html">007.3 · 午后临潼与骊山实走</option>
       </select>
     </nav>
 
     <header class="hero">
-      <h1>第一次见面 · 西安四晚舒适行 v007.3</h1>
+      <h1>第一次见面 · 西安四晚舒适行 v007.2</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；Day 3 上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→骊山徒步/索道组合→晚饭→《长恨歌》第二场执行，不参观华清宫景点。</p>
+      <p class="summary">入住金海御府；Day 2 取消早市。Day 3 小南门早市＋回民街泡馍后赴临潼，保留兵马俑、华清宫，并按天气与体力选择骊山轻量段和《长恨歌》场次。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -3738,66 +3738,6 @@
       per_person_max: 1518
     });
   }
-})();
-  </script>
-
-  <script>
-// v007.3: fixed 13:00 departure and the requested Terracotta Warriors ->
-// Lishan hike -> dinner -> second Chang Hen Ge sequence. Huaqing sights are skipped.
-(() => {
-  const D = window.tripData;
-  if (!D) return;
-
-  D.trip_name = '第一次见面 · 西安四晚舒适行 v007.3';
-  D.summary = '入住金海御府；Day 3上午早市与泡馍后回酒店休息，13:00出发，按兵马俑→骊山徒步/索道组合→晚饭→《长恨歌》第二场执行，不参观华清宫景点。';
-
-  const day3 = D.days.find(day => day.day === 3);
-  Object.assign(day3, {
-    region: '小南门 / 北广济街 / 兵马俑 / 骊山',
-    theme: '上午慢节奏，13:00出发，兵马俑后爬骊山并看第二场长恨歌',
-    center: [109.210276, 34.363243],
-    pois: [
-      { idx: 1, time: '06:20', name: '小南门便民早市', cat: 'food', type: 'outdoor', tags: ['outdoor'], lng: 108.935920, lat: 34.251947, duration_min: 60, weather_sensitive: true, indoor_backup: '取消早市，继续在酒店休息', note: '高德登记周二至周日06:00-09:00。只少量尝味，07:20离开，为叔叔喜欢的泡馍留胃口。', why: '按既定安排由女朋友带父母去，后面专门留有回酒店休息时间。' },
-      { idx: 2, time: '07:35', name: '返回金海御府 · 补觉与整理', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 100, note: '洗漱、补水并休息；09:20左右再叫车。', why: '避免把早市、泡馍和临潼连成无休息的长线。' },
-      { idx: 3, time: '09:35', name: '老刘家泡馍·陕西老字号（北广济街）', cat: 'food', lng: 108.939087, lat: 34.261193, duration_min: 55, note: '高德登记北广济街101号、评分4.7、人均约23元，周日05:00-20:30。四人先按3碗量点，避免过饱。', why: '满足叔叔喜欢泡馍的明确偏好，同时避开午间临潼景区餐饮。' },
-      { idx: 4, time: '10:50', name: '回金海御府 · 午休与出发准备', cat: 'hotel', lng: 108.922174, lat: 34.270608, duration_min: 115, note: '泡馍后回房休息，带雨衣、防滑鞋、替换袜、饮水和身份证。12:45下楼叫车，13:00准时出发。', why: '把用户指定的13:00出发变成真正可执行的门到门节点。' },
-      { idx: 5, time: '14:00', name: '秦始皇帝陵博物院（兵马俑） · 核心线', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 130, requires_booking: true, note: '高德金海御府至兵马俑约42.4公里/57分钟，按14:00入园。走1号坑→3号坑→2号坑，16:10离开，不去丽山园、不在文创区久留。', why: '13:00才从市区出发时，2小时10分钟是兼顾讲解和后续骊山的上限。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '门票', source: 'official-site', source_ref: '秦始皇帝陵博物院官方票价' } },
-      { idx: 6, time: '16:40', name: '骊山 · 徒步上山＋索道下山组合', cat: 'scenery', type: 'outdoor', tags: ['outdoor'], lng: 109.210276, lat: 34.363243, duration_min: 130, weather_sensitive: true, indoor_backup: '取消登山，直接在华清宫游客中心或正规室内场所休息，随后提前吃饭', note: '兵马俑至骊山索道下站高德约10.1公里/25分钟。目标按兵谏亭方向徒步上行，再依现场体力和开放情况折返或索道下山；18:50前回到山下。高德显示兵谏亭旺季07:00-19:00、骊山索道09:00-21:00，但必须现场确认当日末班及天气停运信息。', why: '小红书同线实走显示完整徒步上下约3小时，另有记录约2小时；13:00出发无法稳定完成全程上下，因此采用“确实爬山、索道减负”的组合，而不是承诺登顶后再全程走下。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '华清宫·骊山联票参考', source: 'official-site', source_ref: '骊山入口属于华清宫·骊山联票体系；虽不参观华清宫景点仍需购对应门票' } },
-      { idx: 7, time: '19:05', name: '华清宫外附近 · 晚饭与休息', cat: 'food', lng: 109.212541, lat: 34.363852, duration_min: 80, note: '不进入华清宫景点参观。选择出餐快、清淡、有座位的餐厅，20:25前结束；之后继续坐下休息，20:55左右去检票。', why: '爬山后先补水和吃饭，第二场多出的时间用于恢复，不再增加景点。' },
-      { idx: 8, time: '21:35', name: '《长恨歌》第二场', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 65, weather_sensitive: true, indoor_backup: '如官方因极端天气取消，按购票平台规则处理并直接返城', note: '小红书近期实测约21:35开演、22:38结束。这个顺序必须订第二场，第一场20:10无法同时容纳爬山和晚饭。散场后不依赖地铁，提前预约返金海御府车辆。', why: '第二场给兵马俑和骊山留下必要缓冲，也符合四人合计约省300元的当前报价。', price: { min: 1216, max: 1216, currency: 'CNY', unit: 'group', quantity: 1, total_min: 1216, total_max: 1216, label: '四人第二场参考', source: 'user-confirmed', source_ref: '用户购票页所见第二场较第一场合计省约300元' } }
-    ],
-    transports: [
-      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 10, distance_m: 2300, description: '金海御府至小南门；清晨预留叫车时间。', source: 'amap-mcp' },
-      { from_idx: 1, to_idx: 2, mode: 'driving', duration_min: 11, distance_m: 3391, description: '小南门返金海御府，高德当前约3.4公里/11分钟。', source: 'amap-mcp' },
-      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 15, distance_m: 2939, description: '金海御府至北广济街老刘家泡馍，高德约2.9公里/15分钟。', source: 'amap-mcp' },
-      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 15, distance_m: 3000, description: '泡馍店返回金海御府午休；以现场高德叫车页为准。', source: 'amap-mcp' },
-      { from_idx: 4, to_idx: 5, mode: 'driving', duration_min: 57, distance_m: 42417, description: '13:00金海御府出发至兵马俑，高德当前约42.4公里/57分钟；按60分钟门到门安排。', source: 'amap-mcp' },
-      { from_idx: 5, to_idx: 6, mode: 'driving', duration_min: 25, distance_m: 10094, description: '16:10离开兵马俑至骊山索道下站，高德当前约10.1公里/25分钟。', source: 'amap-mcp' },
-      { from_idx: 6, to_idx: 7, mode: 'walking', duration_min: 10, distance_m: 600, description: '骊山下山后步行至华清宫外附近餐厅；按最终餐厅调整。', source: 'computed' },
-      { from_idx: 7, to_idx: 8, mode: 'walking', duration_min: 10, distance_m: 500, description: '晚饭与休息区步行至《长恨歌》检票区。', source: 'computed' },
-      { from_idx: 8, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '第二场约22:38散场后返金海御府；提前约车，按80分钟以上门到门准备。', source: 'amap-mcp' }
-    ],
-    meals: {
-      breakfast: { main: { name: '小南门早市（少量尝味）', why: '少量吃，为泡馍留胃口。' } },
-      lunch: { main: { name: '老刘家泡馍·陕西老字号（北广济街）', why: '作为早午餐，之后回酒店午休。' } },
-      dinner: { main: { name: '华清宫外附近清淡快餐', why: '骊山结束后立即吃饭，20:25前结束并坐下休息。' } }
-    },
-    weather_decision: '**8月9日高德预报小雨，骊山必须有条件执行。** Plan A（16:30前已停雨、台阶干燥、索道确认运行、四人体力正常）：徒步上山并用索道减负下山，18:50前回到山下。Plan B（仍下雨、地面湿滑、索道停运或任何人疲劳）：完全取消爬山，直接休息和吃饭。禁止在小雨中为了完成计划夜间徒步下山。华清宫景点不参观，但进入骊山仍需购买对应联票。'
-  });
-
-  (D.prebook || []).forEach(item => {
-    if (/小南门早市/.test(item.item || '') || /兵马俑/.test(item.item || '') || /临潼历史/.test(item.item || '')) {
-      item.item = '兵马俑＋华清宫·骊山联票＋《长恨歌》第二场＋返程车';
-      item.note = '13:00从金海御府出发；不参观华清宫景点，但爬骊山仍需对应联票。提前确认索道末班和天气停运规则，并预约第二场散场返程车。';
-    }
-  });
-
-  D.xhs_destination_brief = D.xhs_destination_brief || {};
-  D.xhs_destination_brief.source_notes = [
-    { title: '西安震撼一日｜兵马俑＋骊山＋长恨歌', url: 'https://www.xiaohongshu.com/explore/6a5651f9000000002003bd06' },
-    { title: '6小时参观华清宫，爬完骊山，看了长恨歌', url: 'https://www.xiaohongshu.com/explore/684444ef0000000012007aa4' },
-    { title: '长恨歌第二场21:35开始，大概22:38结束', url: 'https://www.xiaohongshu.com/explore/6a2c291d0000000021021032' }
-  ];
 })();
   </script>
 
