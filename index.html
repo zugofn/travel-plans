@@ -929,6 +929,7 @@
     .decision-card { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); overflow: hidden; }
     .decision-card > h3 { margin: 0; padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--border); font-size: var(--fs-lg); }
     .decision-option { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: var(--sp-3); align-items: start; padding: var(--sp-3) var(--sp-4); border-top: 1px solid var(--border); }
+    .decision-option[hidden] { display: none !important; }
     .decision-option:first-of-type { border-top: 0; }
     .decision-option.is-selected { background: #f6f9ff; }
     .decision-select { width: 38px; height: 38px; padding: 0; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--fg); font-weight: 800; cursor: pointer; }
@@ -1328,7 +1329,7 @@
     <header class="hero">
       <h1>第一次见面 · 西安四晚舒适行 v007</h1>
       <p class="meta">2026-08-07 至 2026-08-11 · 5 · 西安</p>
-      <p class="summary">入住金海御府；首晚钟楼短逛、8月8日晓长安正式宴请、8月9日午后临潼、8月10日上午就医后弹性安排。</p>
+      <p class="summary">入住金海御府；首晚袁山山丈八北路店由父母宴请、8月8日晓长安正式接风、8月9日兵马俑＋华清宫＋长恨歌、8月10日陕西省人民医院就诊。</p>
     </header>
 
     <button class="drawer-toggle" id="drawer-toggle" aria-label="打开行程信息" aria-expanded="false" aria-controls="drawer">
@@ -1379,18 +1380,18 @@
         </article>
 
         <article class="decision-card" data-choice-card="medical" data-choice-day="4" hidden>
-          <h3>8月10日父母专项就医 · 二选一</h3>
+          <h3>8月10日父母专项就医 · 已确定</h3>
           <div class="decision-option is-selected" data-choice-option="medical-A">
-            <button class="decision-select" type="button" data-choice-button="medical-A" aria-pressed="true">A</button>
-            <div><h4>确定性优先 · 西安市第一医院一院完成</h4><p>皮肤、眼科、消化、神内均有确定号，酒店出发高德基准约3.7公里/15分钟。阿姨同一眼病曾在此就诊，眼科仅作兜底，不把重复就诊包装成专科升级。</p></div>
-            <a href="https://uri.amap.com/marker?position=108.944962,34.254547&name=西安市第一医院" target="_blank" rel="noopener">高德</a>
+            <button class="decision-select" type="button" data-choice-button="medical-A" aria-pressed="true">✓</button>
+            <div><h4>陕西省人民医院主院区</h4><p>唯一执行医院。高德核验地址为友谊西路256号，三级甲等综合医院；金海御府到院约4.1公里/15分钟。按已预约科室和时间就诊，不再展示跨院候补方案。</p></div>
+            <a href="https://uri.amap.com/marker?position=108.930150,34.239675&name=陕西省人民医院主院区" target="_blank" rel="noopener">高德</a>
           </div>
-          <div class="decision-option" data-choice-option="medical-B">
+          <div class="decision-option" data-choice-option="medical-B" hidden>
             <button class="decision-select" type="button" data-choice-button="medical-B" aria-pressed="false">B</button>
             <div><h4>专科优先 · 西京＋交大一候补＋交大二兜底</h4><p>8月10日按最终号源分流：叔叔皮肤用西京确定号；阿姨眼科候补西京；交大一消化、神内候补成功后启用，失败则保留交大二确定号。省人民消化和交大二皮肤因既往效果不佳不作主选。</p></div>
             <a href="https://uri.amap.com/marker?position=108.988276,34.270598&name=西京医院" target="_blank" rel="noopener">西京</a>
           </div>
-          <div class="decision-status" data-choice-status="medical">当前选择：Plan A 确定性优先</div>
+          <div class="decision-status" data-choice-status="medical">当前选择：陕西省人民医院主院区</div>
         </article>
       </section>
 
@@ -3315,7 +3316,10 @@
     region: '西安北站 / 金海御府 / 钟楼',
     theme: '接站、父母做东与可选钟楼夜景',
     pois: [
-      day1.pois[0],
+      Object.assign(day1.pois[0], {
+        note: '在到达层会合后直接叫车去金海御府办理入住；第一晚由叔叔阿姨在袁山山重庆火锅丈八北路店请客。',
+        why: '先入住放行李，再从酒店统一出发去火锅店。'
+      }),
       Object.assign(day1.pois[1], {
         time: '18:50',
         name: '金海御府 · 入住与父母做东晚餐',
@@ -3484,6 +3488,154 @@
       per_person_min: 1017,
       per_person_max: 1398,
       disclaimer: '不含酒店、往返高铁、实时打车、妆造订单、西安非遗大剧院待确认票价、医疗和购物。'
+    });
+  }
+})();
+  </script>
+
+  <script>
+// v007 follow-up: confirmed first-night restaurant, restored Huaqing Palace,
+// and pinned the medical day to Shaanxi Provincial People's Hospital.
+(() => {
+  const D = window.tripData;
+  if (!D) return;
+
+  D.summary = '入住金海御府；首晚袁山山丈八北路店由父母宴请、8月8日晓长安正式接风、8月9日兵马俑＋华清宫＋长恨歌、8月10日陕西省人民医院就诊。';
+  D.weather_plan = D.weather_plan.replace('8月7日只有无明显降雨且21:00前吃完才去钟楼', '8月7日火锅后通常直接回酒店；仅在20:40前吃完、无雨且父母主动想逛时才去钟楼');
+
+  const day1 = D.days.find(day => day.day === 1);
+  Object.assign(day1, {
+    region: '西安北站 / 金海御府 / 丈八北路',
+    theme: '接站、父母火锅宴请与极低优先级钟楼夜景',
+    pois: [
+      day1.pois[0],
+      {
+        idx: 2,
+        time: '18:50',
+        name: '金海御府 · 办理入住',
+        cat: 'hotel',
+        lng: 108.922174,
+        lat: 34.270608,
+        duration_min: 35,
+        note: '办理两间房入住、放行李后再出发吃饭；不要直接带行李去火锅店。',
+        why: '先把住宿手续完成，晚饭后可直接回房休息。'
+      },
+      {
+        idx: 3,
+        time: '19:45',
+        name: '袁山山重庆火锅（丈八北路店） · 父母宴请',
+        cat: 'food',
+        lng: 108.871782,
+        lat: 34.246594,
+        duration_min: 100,
+        note: '高德正式登记名为“丈八北路店”，地址丈八北路3号；高德未标“西安总店”。当前评分4.8、人均约93元、10:00-次日02:00。叔叔不重辣，建议鸳鸯锅并把蘸料、辣度分开。',
+        why: '这是叔叔阿姨已经确定的第一晚宴请地点，页面按真实门店名导航，不再保留“地点待定”。'
+      },
+      {
+        idx: 4,
+        time: '21:30',
+        name: '钟楼外景短逛（仅极早吃完才去）',
+        cat: 'scenery',
+        type: 'outdoor',
+        tags: ['outdoor', '观景'],
+        lng: 108.947030,
+        lat: 34.259430,
+        duration_min: 40,
+        weather_sensitive: true,
+        indoor_backup: '从火锅店直接返回金海御府',
+        note: '火锅店到钟楼高德约8.7公里/30分钟。只有20:40前吃完、无雨、父母仍有体力且主动想去时才执行；否则火锅店到金海御府约7.8公里/19分钟，直接回酒店。',
+        why: '新餐厅位置使钟楼不再顺路，因此它只是条件选项，不是默认行程。'
+      }
+    ],
+    transports: [
+      day1.transports[0],
+      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 19, distance_m: 6950, description: '金海御府至袁山山丈八北路店，高德当前约6.95公里/18分钟，预留25分钟门到门。', source: 'amap-mcp' },
+      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 30, distance_m: 8661, description: '仅触发可选夜游时执行：火锅店至钟楼，高德当前约8.7公里/30分钟。正常情况直接回酒店约7.8公里/19分钟。', source: 'amap-mcp' },
+      { from_idx: 4, to_idx: 0, mode: 'driving', duration_min: 20, distance_m: 3800, description: '钟楼短逛后返回金海御府；现场以高德叫车页为准。', source: 'amap-mcp' }
+    ],
+    meals: {
+      dinner: {
+        main: {
+          name: '袁山山重庆火锅（丈八北路店）',
+          why: '叔叔阿姨做东；高德正式门店名和地址已核验。',
+          lng: 108.871782,
+          lat: 34.246594,
+          price: { min: 0, max: 0, currency: 'CNY', unit: 'free', quantity: 1, total_min: 0, total_max: 0, label: '父母宴请，不计入你的接待预算', source: 'computed', source_ref: '用户确认由父母宴请' }
+        }
+      }
+    },
+    weather_decision: '**默认不再安排饭后活动。** 火锅店不在钟楼动线上，正常吃完约21:25，直接回金海御府约19分钟最舒服。只有20:40前结束、无雨且父母主动想逛时，才叫车约30分钟去钟楼看外景；长安十二时辰和固定场次戏剧均不安排。'
+  });
+
+  const day3 = D.days.find(day => day.day === 3);
+  Object.assign(day3, {
+    theme: '上午短逛、兵马俑、华清宫核心区与长恨歌',
+    pois: [
+      { idx: 1, time: '10:00', name: '开元商城钟楼店 · 45分钟轻逛', cat: 'shopping', lng: 108.948139, lat: 34.258584, duration_min: 45, note: '只做礼物踩点，10:45准时离开；若出发晚于10:00，直接取消开元。', why: '满足上午不早去临潼，同时给华清宫腾出完整的核心参观时间。' },
+      { idx: 2, time: '10:55', name: '钟楼附近提前午餐', cat: 'food', lng: 108.947030, lat: 34.259430, duration_min: 45, note: '11:40前结束，选择不用排队、出餐快的清淡餐厅；11:45上车。', why: '把原来12:30出发提前约45分钟，才能恢复华清宫。' },
+      { idx: 3, time: '13:00', name: '秦始皇帝陵博物院（兵马俑）', cat: 'culture', lng: 109.282057, lat: 34.386299, duration_min: 160, requires_booking: true, note: '13:00-15:40走1号坑、3号坑、2号坑核心线；购买官方或正规讲解，取消丽山园，不在文创区久留。', why: '保住兵马俑核心体验，但把原来的约3小时20分钟压缩为2小时40分钟。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '门票', source: 'official-site', source_ref: '秦始皇帝陵博物院官方票价' } },
+      { idx: 4, time: '16:15', name: '华清宫核心参观', cat: 'culture', type: 'outdoor', tags: ['outdoor'], lng: 109.215759, lat: 34.356728, duration_min: 95, weather_sensitive: true, indoor_backup: '保留御汤遗址博物馆与室内展陈，缩短室外园林', note: '重点看御汤遗址、西安事变旧址和核心园林，不爬骊山。高德当前显示景区开放至18:00，17:50前结束参观。', why: '恢复你们希望保留的华清宫，但只走最有代表性的核心线。', price: { min: 120, max: 120, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 480, total_max: 480, label: '门票', source: 'official-site', source_ref: '华清宫官方票务' } },
+      { idx: 5, time: '18:00', name: '华清宫附近晚餐与休息', cat: 'food', lng: 109.215759, lat: 34.356728, duration_min: 80, note: '19:20前吃完并取票、休息，19:40前完成《长恨歌》检票。', why: '华清宫参观结束后不再跨区移动。' },
+      { idx: 6, time: '20:10', name: '《长恨歌》第一场（继续推荐）', cat: 'show', type: 'outdoor', tags: ['outdoor', '观景'], lng: 109.212541, lat: 34.363852, duration_min: 70, weather_sensitive: true, indoor_backup: '如官方因极端天气取消，按购票平台规则处理并直接返城', note: '保留第一场。第二场虽四人省300元，但约22:38才散场，次日上午还要去陕西省人民医院，不建议切换。', why: '华清宫恢复后整天活动量已足，第一场更有利于休息。', price: { min: 379, max: 379, currency: 'CNY', unit: 'per_person', quantity: 4, total_min: 1516, total_max: 1516, label: '中区第一场参考', source: 'official-site', source_ref: '长恨歌官方预订页2026票价' } }
+    ],
+    transports: [
+      { from_idx: 0, to_idx: 1, mode: 'driving', duration_min: 20, distance_m: 4077, description: '金海御府至开元商城钟楼店，高德当前约4.1公里/20分钟。', source: 'amap-mcp' },
+      { from_idx: 1, to_idx: 2, mode: 'walking', duration_min: 8, distance_m: 600, description: '开元与钟楼午餐区步行衔接，按最终餐厅调整。', source: 'computed' },
+      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 59, distance_m: 41659, description: '钟楼至兵马俑，高德本次约41.7公里/59分钟；11:45上车并预留75分钟门到门。', source: 'amap-mcp' },
+      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 33, distance_m: 13766, description: '兵马俑至华清宫，高德本次约13.8公里/33分钟，15:40离馆后直接上车。', source: 'amap-mcp' },
+      { from_idx: 4, to_idx: 5, mode: 'walking', duration_min: 8, distance_m: 400, description: '华清宫核心区结束后就近晚餐，具体步行距离按餐厅调整。', source: 'computed' },
+      { from_idx: 5, to_idx: 6, mode: 'walking', duration_min: 10, distance_m: 500, description: '晚餐后步行到《长恨歌》检票区。', source: 'computed' },
+      { from_idx: 6, to_idx: 0, mode: 'driving', duration_min: 60, distance_m: 39921, description: '第一场散场返金海御府，基础车程约60分钟，按80分钟以上准备并提前约车。', source: 'amap-mcp' }
+    ],
+    meals: {
+      lunch: { main: { name: '钟楼附近提前午餐', why: '11:40前吃完，给兵马俑和华清宫留足时间。' } },
+      dinner: { main: { name: '华清宫附近提前晚餐', why: '参观结束后就近吃，19:40前完成演出检票。' } }
+    },
+    weather_decision: '**8月9日高德预报小雨，华清宫恢复但采用核心线。** 小雨时备雨衣、防滑鞋，华清宫优先御汤遗址和室内展陈；若升级为持续中到大雨，则缩短室外园林而不是取消整个华清宫。若开元或午餐任何一段晚点超过20分钟，第一顺位取消开元，不能挤压兵马俑、华清宫和演出检票。'
+  });
+
+  const day4 = D.days.find(day => day.day === 4);
+  Object.assign(day4, {
+    region: '陕西省人民医院 / 钟楼 / 商场四选一',
+    theme: '陕西省人民医院上午就诊，按结束时间选择戏曲与购物',
+    center: [108.930150, 34.239675],
+    pois: [
+      Object.assign(day4.pois[0], { time: '07:15', name: '金海御府 · 早餐与资料确认', lng: 108.922174, lat: 34.270608, note: '带身份证、医保凭证、既往病历、检查报告和当前用药清单；按预约时间倒推，至少提前30分钟到院。' }),
+      { idx: 2, time: '08:00', name: '陕西省人民医院主院区 · 上午就诊', cat: 'booking', lng: 108.930150, lat: 34.239675, duration_min: 240, requires_booking: true, note: '地址友谊西路256号，高德登记为三级甲等综合医院。只执行已经预约的科室；检查、缴费和医嘱优先，结束时间不可控。', why: '医院已经确定，不再跨院候补或分流。' },
+      day4.pois[2],
+      day4.pois[3]
+    ],
+    transports: [
+      { from_idx: 1, to_idx: 2, mode: 'driving', duration_min: 16, distance_m: 4104, description: '金海御府至陕西省人民医院主院区，高德当前约4.1公里/15分钟；按早高峰预留30分钟门到门。', source: 'amap-mcp' },
+      { from_idx: 2, to_idx: 3, mode: 'driving', duration_min: 23, distance_m: 5568, description: '陕西省人民医院至秦风源非遗剧场，高德当前约5.6公里/23分钟；仅在13:30前结束看诊时执行。', source: 'amap-mcp' },
+      { from_idx: 3, to_idx: 4, mode: 'driving', duration_min: 10, distance_m: 1500, description: '默认A开元钟楼为短途；选择B/C/D时按页面四选一动线叫车。', source: 'amap-mcp' },
+      { from_idx: 4, to_idx: 0, mode: 'driving', duration_min: 20, distance_m: 4100, description: '默认A返金海御府约4公里；其他商场以现场高德为准。', source: 'amap-mcp' }
+    ],
+    weather_decision: '**唯一变量是看诊结束时间。** 13:30前结束：午餐→秦风源→商场；13:30-14:30结束：从陕西省人民医院直接去商场，高德到开元钟楼约4.0公里/19分钟；14:30后或检查未完：取消戏曲，视体力只逛最近的开元或回酒店。'
+  });
+
+  (D.prebook || []).forEach(item => {
+    if (/医院确定号|候补号/.test(item.item || '')) {
+      item.item = '陕西省人民医院已预约科室';
+      item.note = '8月10日上午；按预约时间至少提前30分钟到主院区，地址友谊西路256号。';
+    }
+    if (/兵马俑/.test(item.item || '') || /临潼历史/.test(item.item || '')) {
+      item.item = '兵马俑＋华清宫＋《长恨歌》第一场＋返程车';
+      item.note = '开元只逛45分钟，11:45离开钟楼；华清宫恢复核心参观，不爬骊山。';
+    }
+  });
+
+  if (D.budget_summary?.by_category?.tickets) {
+    Object.assign(D.budget_summary.by_category.tickets, {
+      min: 3116,
+      max: 3320,
+      note: '含大慈恩寺、芙蓉园、兵马俑、华清宫、《长恨歌》第一场；上限再含秦风源。西安非遗大剧院具体票价待官方售票页确认。'
+    });
+    Object.assign(D.budget_summary, {
+      total_min: 4548,
+      total_max: 6072,
+      per_person_min: 1137,
+      per_person_max: 1518
     });
   }
 })();
@@ -5357,7 +5509,7 @@
       const labels = {
         'dinner-A': '旧方案 铭家曲江店',
         'dinner-B': '晓长安曲江店（已确定）',
-        'medical-A': 'Plan A 确定性优先',
+        'medical-A': '陕西省人民医院主院区（已确定）',
         'medical-B': 'Plan B 专科优先'
       };
       document.querySelectorAll('[data-choice-card]').forEach(card => {
